@@ -25,7 +25,7 @@ struct SwiftHandlerDemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TestContentView()
+            FileContentView(sourceLanguage: .constant(.en_US), targetLanguage: .constant(.zh_Hans))
         }
         .modelContainer(sharedModelContainer)
     }
