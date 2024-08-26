@@ -110,10 +110,8 @@ struct FileContentView: View {
     
     func selectDocument() {
         let panel = NSOpenPanel()
-        let wordDocType = UTType("com.microsoft.word.doc")!
-        let wordDocxType = UTType("org.openxmlformats.wordprocessingml.document")!
 //        panel.allowedFileTypes = ["pdf", "docx", "doc"]
-        panel.allowedContentTypes = [UTType.pdf, wordDocType, wordDocxType]
+        panel.allowedContentTypes = SupportedUrlType.shared.allTypes
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
         
