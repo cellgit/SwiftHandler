@@ -5,6 +5,10 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftHandler",
+    platforms: [
+        .iOS(.v17),
+        .macOS(.v14)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -21,3 +25,23 @@ let package = Package(
             dependencies: ["SwiftHandler"]),
     ]
 )
+
+
+//let package = Package(
+//    name: "SwiftHandler",
+//    products: [
+//        // Products define the executables and libraries a package produces, making them visible to other packages.
+//        .library(
+//            name: "SwiftHandler",
+//            targets: ["SwiftHandler"]),
+//    ],
+//    targets: [
+//        // Targets are the basic building blocks of a package, defining a module or a test suite.
+//        // Targets can depend on other targets in this package and products from dependencies.
+//        .target(
+//            name: "SwiftHandler"),
+//        .testTarget(
+//            name: "SwiftHandlerTests",
+//            dependencies: ["SwiftHandler"]),
+//    ]
+//)
