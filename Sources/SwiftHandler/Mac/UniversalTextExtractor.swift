@@ -81,9 +81,9 @@ public class SupportedUrlType {
 
 public struct UniversalTextExtractor: View {
     
-    let url: URL
+    public let url: URL
     
-    @Binding var extractedText: String
+    @Binding public var extractedText: String
     
     public var body: some View {
         VStack {
