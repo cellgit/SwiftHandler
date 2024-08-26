@@ -80,7 +80,9 @@ public class SupportedUrlType {
 
 
 public struct UniversalTextExtractor: View {
+    
     let url: URL
+    
     @Binding var extractedText: String
     
     public var body: some View {
