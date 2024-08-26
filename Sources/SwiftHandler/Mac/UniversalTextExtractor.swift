@@ -19,13 +19,13 @@ let markdownUTI = UTType("net.daringfireball.markdown")!
 let wordDocType = UTType("com.microsoft.word.doc")!
 let wordDocxType = UTType("org.openxmlformats.wordprocessingml.document")!
 
-class SupportedUrlType {
+public class SupportedUrlType {
     
-    static let shared = SupportedUrlType()
+    public static let shared = SupportedUrlType()
     
     private init() {}
     
-    var allTypes: [UTType] {
+    public var allTypes: [UTType] {
     
         [.pdf,
          .plainText,
@@ -79,11 +79,11 @@ class SupportedUrlType {
 }
 
 
-struct UniversalTextExtractor: View {
+public struct UniversalTextExtractor: View {
     let url: URL
     @Binding var extractedText: String
     
-    var body: some View {
+    public var body: some View {
         VStack {
             ScrollView {
                 Text(extractedText)
