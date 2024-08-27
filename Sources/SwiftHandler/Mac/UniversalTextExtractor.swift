@@ -29,6 +29,7 @@ public struct UniversalTextExtractor: View {
         VStack {
             ScrollView {
                 Text(extractedText)
+                    .lineSpacing(3)
                     .padding()
             }
         }
