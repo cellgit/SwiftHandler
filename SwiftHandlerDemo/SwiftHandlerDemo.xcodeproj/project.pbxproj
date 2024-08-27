@@ -21,13 +21,16 @@
 		8477A3E42C7C4B7C00DA6080 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3E32C7C4B7C00DA6080 /* String+extension.swift */; };
 		8477A3E62C7C573500DA6080 /* DocxToPDFConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3E52C7C573500DA6080 /* DocxToPDFConverter.swift */; };
 		8477A3ED2C7C5CBE00DA6080 /* FileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3EC2C7C5CBE00DA6080 /* FileContentView.swift */; };
-		8477A3F02C7C5D2600DA6080 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3EF2C7C5D2600DA6080 /* LanguageManager.swift */; };
+		8477A3F02C7C5D2600DA6080 /* LanguageManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3EF2C7C5D2600DA6080 /* LanguageManager2.swift */; };
 		8477A3F22C7C605100DA6080 /* PDFKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3F12C7C605100DA6080 /* PDFKitView.swift */; };
 		8477A3F42C7C606800DA6080 /* PDFKitRepresentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3F32C7C606800DA6080 /* PDFKitRepresentedView.swift */; };
 		8477A3F62C7C60E700DA6080 /* TextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3F52C7C60E700DA6080 /* TextManager.swift */; };
 		8477A3F82C7C64DD00DA6080 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3F72C7C64DD00DA6080 /* UIView+extension.swift */; };
 		8477A3FF2C7C677100DA6080 /* WebViewFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A3FE2C7C677100DA6080 /* WebViewFile.swift */; };
 		8477A4052C7C761E00DA6080 /* UniversalTextExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477A4042C7C761E00DA6080 /* UniversalTextExtractor.swift */; };
+		84D3DA982C7D5FFB00EA1BE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84D3DA962C7D5FFB00EA1BE2 /* Localizable.strings */; };
+		84D3DAA22C7D62F800EA1BE2 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3DAA12C7D62F800EA1BE2 /* LanguageManager.swift */; };
+		84D3DAA42C7D636100EA1BE2 /* LocalizableMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3DAA32C7D636100EA1BE2 /* LocalizableMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,13 +69,23 @@
 		8477A3E32C7C4B7C00DA6080 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		8477A3E52C7C573500DA6080 /* DocxToPDFConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocxToPDFConverter.swift; sourceTree = "<group>"; };
 		8477A3EC2C7C5CBE00DA6080 /* FileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentView.swift; sourceTree = "<group>"; };
-		8477A3EF2C7C5D2600DA6080 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		8477A3EF2C7C5D2600DA6080 /* LanguageManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager2.swift; sourceTree = "<group>"; };
 		8477A3F12C7C605100DA6080 /* PDFKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitView.swift; sourceTree = "<group>"; };
 		8477A3F32C7C606800DA6080 /* PDFKitRepresentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitRepresentedView.swift; sourceTree = "<group>"; };
 		8477A3F52C7C60E700DA6080 /* TextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextManager.swift; sourceTree = "<group>"; };
 		8477A3F72C7C64DD00DA6080 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		8477A3FE2C7C677100DA6080 /* WebViewFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewFile.swift; sourceTree = "<group>"; };
 		8477A4042C7C761E00DA6080 /* UniversalTextExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTextExtractor.swift; sourceTree = "<group>"; };
+		84D3DA972C7D5FFB00EA1BE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84D3DA992C7D609000EA1BE2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		84D3DA9A2C7D60A000EA1BE2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		84D3DA9B2C7D60CC00EA1BE2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84D3DA9C2C7D60E800EA1BE2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84D3DA9D2C7D60FE00EA1BE2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84D3DA9E2C7D610400EA1BE2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84D3DA9F2C7D611300EA1BE2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84D3DAA12C7D62F800EA1BE2 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		84D3DAA32C7D636100EA1BE2 /* LocalizableMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +177,8 @@
 		8477A3DE2C7C49B900DA6080 /* SwiftHandler */ = {
 			isa = PBXGroup;
 			children = (
+				84D3DAA02C7D62BF00EA1BE2 /* Localizable */,
+				84D3DA952C7D5DCE00EA1BE2 /* Resources */,
 				8477A3E52C7C573500DA6080 /* DocxToPDFConverter.swift */,
 				8477A3DC2C7C49B900DA6080 /* FileManagerHelper.swift */,
 				8477A3DD2C7C49B900DA6080 /* SwiftHandler.swift */,
@@ -198,7 +213,7 @@
 		8477A3EE2C7C5CFE00DA6080 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				8477A3EF2C7C5D2600DA6080 /* LanguageManager.swift */,
+				8477A3EF2C7C5D2600DA6080 /* LanguageManager2.swift */,
 				8477A3F52C7C60E700DA6080 /* TextManager.swift */,
 			);
 			path = common;
@@ -210,6 +225,23 @@
 				8477A4042C7C761E00DA6080 /* UniversalTextExtractor.swift */,
 			);
 			path = Mac;
+			sourceTree = "<group>";
+		};
+		84D3DA952C7D5DCE00EA1BE2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84D3DA962C7D5FFB00EA1BE2 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		84D3DAA02C7D62BF00EA1BE2 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				84D3DAA12C7D62F800EA1BE2 /* LanguageManager.swift */,
+				84D3DAA32C7D636100EA1BE2 /* LocalizableMapper.swift */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +330,13 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
+				fr,
+				de,
+				ja,
+				ko,
+				ru,
 			);
 			mainGroup = 8477A3A32C7C497800DA6080;
 			productRefGroup = 8477A3AD2C7C497800DA6080 /* Products */;
@@ -317,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8477A3BA2C7C497A00DA6080 /* Preview Assets.xcassets in Resources */,
+				84D3DA982C7D5FFB00EA1BE2 /* Localizable.strings in Resources */,
 				8477A3B62C7C497A00DA6080 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,13 +391,15 @@
 				8477A3E22C7C4A2400DA6080 /* TestContentView.swift in Sources */,
 				8477A3F42C7C606800DA6080 /* PDFKitRepresentedView.swift in Sources */,
 				8477A3DF2C7C49B900DA6080 /* FileManagerHelper.swift in Sources */,
+				84D3DAA42C7D636100EA1BE2 /* LocalizableMapper.swift in Sources */,
 				8477A3B42C7C497800DA6080 /* Item.swift in Sources */,
 				8477A3E42C7C4B7C00DA6080 /* String+extension.swift in Sources */,
 				8477A3E62C7C573500DA6080 /* DocxToPDFConverter.swift in Sources */,
 				8477A3F82C7C64DD00DA6080 /* UIView+extension.swift in Sources */,
 				8477A3B02C7C497800DA6080 /* SwiftHandlerDemoApp.swift in Sources */,
 				8477A3ED2C7C5CBE00DA6080 /* FileContentView.swift in Sources */,
-				8477A3F02C7C5D2600DA6080 /* LanguageManager.swift in Sources */,
+				84D3DAA22C7D62F800EA1BE2 /* LanguageManager.swift in Sources */,
+				8477A3F02C7C5D2600DA6080 /* LanguageManager2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,12 +435,31 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		84D3DA962C7D5FFB00EA1BE2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84D3DA972C7D5FFB00EA1BE2 /* en */,
+				84D3DA992C7D609000EA1BE2 /* zh-Hans */,
+				84D3DA9A2C7D60A000EA1BE2 /* zh-Hant */,
+				84D3DA9B2C7D60CC00EA1BE2 /* fr */,
+				84D3DA9C2C7D60E800EA1BE2 /* de */,
+				84D3DA9D2C7D60FE00EA1BE2 /* ja */,
+				84D3DA9E2C7D610400EA1BE2 /* ko */,
+				84D3DA9F2C7D611300EA1BE2 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		8477A3D12C7C497A00DA6080 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -460,6 +521,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  SwiftHandlerDemo
+
+  Created by admin on 2024/8/27.
+  
+*/
+"language_english" = "English";
+
+"language_chinese_hans" = "Simplified Chinese";
+"language_chinese_hant" = "Traditional Chinese";
+
+"language_ja" = "Japanese";
+"language_ko" = "Korean";
+"language_fr" = "French";
+"language_de" = "German";
+"language_ru" = "Русский";
+
+
+/// 内容
+"quick_mode" = "Quick Mode";
+"document_translation" = "Document Translation";
