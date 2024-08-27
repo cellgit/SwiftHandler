@@ -7,12 +7,14 @@
 
 import Foundation
 
-public enum LanguageManager: Int, CaseIterable {
+public enum LanguageManager: String, CaseIterable {
     
     /// 美式英语
     case en_US
     /// 简体中文
     case zh_Hans
+    /// 繁体中文
+    case zh_Hant
     /// 日语
     case ja
     /// 韩语
@@ -23,16 +25,6 @@ public enum LanguageManager: Int, CaseIterable {
     case de
     /// 俄语
     case ru
-    /// 繁体中文
-    case zh_Hant
-    /// 繁体中文 (香港)
-    case zh_HK
-    /// 英语(UK)
-    case en_GB
-    /// 英语(India)
-    case en_IN
-    /// 英语(Australia)
-    case en_AU
     
 //    繁体中文:zh-Hant
 //    繁体中文(香港):zh-HK
@@ -53,29 +45,18 @@ public enum LanguageManager: Int, CaseIterable {
             return "en-US"
         case .zh_Hans:
             return "zh-Hans"
+        case .zh_Hant:
+            return "zh-Hant"
         case .ja:
             return "ja"
         case .ko:
             return "ko"
-            
         case .fr:
             return "fr"
         case .de:
             return "de"
         case .ru:
             return "ru"
-        case .zh_Hant:
-            return "zh-Hant"
-        case .zh_HK:
-            return "zh-HK"
-        case .en_GB:
-            return "en-GB"
-        case .en_IN:
-            return "en-IN"
-        case .en_AU:
-            return "en-AU"
-            
-            
         }
         
     }
@@ -83,29 +64,21 @@ public enum LanguageManager: Int, CaseIterable {
     public var name: String {
         switch self {
         case .en_US:
-            return LocalizableMapper().language_english
+            return LocalStrings.language_english.rawValue.localized
         case .zh_Hans:
-            return LocalizableMapper().language_chinese_hans
+            return LocalStrings.language_chinese_hans.rawValue.localized
+        case .zh_Hant:
+            return LocalStrings.language_chinese_hant.rawValue.localized
         case .ja:
-            return LocalizableMapper().language_ja
+            return LocalStrings.language_ja.rawValue.localized
         case .ko:
-            return LocalizableMapper().language_ko
+            return LocalStrings.language_ko.rawValue.localized
         case .fr:
             return LocalizableMapper().language_fr
         case .de:
-            return LocalizableMapper().language_de
+            return LocalStrings.language_de.rawValue.localized
         case .ru:
-            return LocalizableMapper().language_ru
-        case .zh_Hant:
-            return LocalizableMapper().language_chinese_hant
-        case .zh_HK:
-            return LocalizableMapper().language_chinese_hant_hk
-        case .en_GB:
-            return LocalizableMapper().language_english_gb
-        case .en_IN:
-            return LocalizableMapper().language_english_in
-        case .en_AU:
-            return LocalizableMapper().language_english_au
+            return LocalStrings.language_ru.rawValue.localized
         }
     }
     

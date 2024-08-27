@@ -58,6 +58,9 @@ struct FileContentView: View {
                         }
                     }
                     .frame(idealWidth: .infinity, maxWidth: .infinity, idealHeight: .infinity, maxHeight: .infinity, alignment: .center)
+                    .onAppear {
+                        print("lauguage2 ===== \(String(describing: LanguageManager.fromSource()?.name))")
+                    }
                 }
                 
                 Button(action: {
@@ -103,6 +106,9 @@ struct FileContentView: View {
                 }
                 
                 
+            }
+            .onAppear {
+                debugPrint("lauguage2 =====")
             }
         }
         

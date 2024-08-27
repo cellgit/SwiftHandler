@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftHandler",
+    defaultLocalization: "en", // 指定默认语言，例如英文
     platforms: [
         .iOS(.v17),
         .macOS(.v14)
