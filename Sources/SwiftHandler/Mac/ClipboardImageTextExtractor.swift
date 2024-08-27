@@ -51,7 +51,7 @@ extension ClipboardImageTextExtractor {
         visionTextManager.getTextFromClipboard { result in
             switch result {
             case .success(let text):
-                extractedText = text
+                extractedText = text//.improvedPostProcessText()
             case .failure(let error):
                 extractedText = "Failed to extract text from image: \(error.localizedDescription)"
             }
