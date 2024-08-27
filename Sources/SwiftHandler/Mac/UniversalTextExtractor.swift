@@ -10,74 +10,8 @@
 import SwiftUI
 import PDFKit
 import Vision
-
 import QuickLook
-
-
 import UniformTypeIdentifiers
-let markdownUTI = UTType("net.daringfireball.markdown")!
-let wordDocType = UTType("com.microsoft.word.doc")!
-let wordDocxType = UTType("org.openxmlformats.wordprocessingml.document")!
-
-public class SupportedUrlType {
-    
-    public static let shared = SupportedUrlType()
-    
-    private init() {}
-    
-    public var allTypes: [UTType] {
-    
-        [.pdf,
-         .plainText,
-         .utf8PlainText,
-         .utf16PlainText,
-         .utf16ExternalPlainText,
-         
-         .commaSeparatedText,
-         .tabSeparatedText,
-         .utf8TabSeparatedText,
-         
-         .rtf,
-         
-         .html,
-         
-         .xml,
-         .yaml,
-         .json,
-         
-         .sourceCode,
-         .cSource,
-         .objectiveCSource,
-         .swiftSource,
-         .cPlusPlusSource,
-         .cHeader,
-         .cPlusPlusHeader,
-         .script,
-         
-         .log,
-         
-         .vCard,
-         
-         .m3uPlaylist,
-         
-         .png,
-         .jpeg,
-         .tiff,
-         .heic,
-         .heif,
-         
-         markdownUTI,
-         wordDocType,
-         wordDocxType,
-         
-        ]
-        
-        
-    }
-    
-    
-}
-
 
 public struct UniversalTextExtractor: View {
     
@@ -275,27 +209,14 @@ extension UniversalTextExtractor {
 extension UniversalTextExtractor {
     
     func getTextFromImage(url: URL) {
-        guard let image = NSImage(contentsOf: url) else {
-            print("Failed to load image.")
-            return
-        }
-        
-        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage(forProposedRect: nil, context: nil, hints: nil)!, options: [:])
-        let request = VNRecognizeTextRequest { (request, error) in
-            guard error == nil else {
-                print("Failed to recognize text: \(error!.localizedDescription)")
-                return
-            }
-            if let observations = request.results as? [VNRecognizedTextObservation] {
-                let text = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: "\n")
+        let visionTextManager = VisionTextManager()
+        visionTextManager.getTextFromImage(url: url) { result in
+            switch result {
+            case .success(let text):
                 extractedText = text
+            case .failure(let error):
+                extractedText = "Failed to extract text from image: \(error.localizedDescription)"
             }
-        }
-        
-        do {
-            try requestHandler.perform([request])
-        } catch {
-            print("Failed to perform text recognition: \(error)")
         }
     }
     
@@ -303,29 +224,3 @@ extension UniversalTextExtractor {
 
 
 #endif
-
-
-
-
-
-
-//    func extractText(from url: URL) {
-//        let fileExtension = url.pathExtension.lowercased()
-//
-//        switch fileExtension {
-//        case "pdf":
-//            extractTextFromPDF(url: url)
-//        case "rtf", "docx":
-//            extractTextFromRTFOrText(url: url)
-//        case "txt":
-//            extractTextFromTXT(url: url)
-////        case "docx", "doc":
-////            extractTextFromWord(url: url)
-//        case "png", "jpg", "jpeg", "tiff":
-//            extractTextFromImage(url: url)
-//        case "md":
-//            extractTextFromMarkdown(url: url)
-//        default:
-//            extractedText = "Unsupported file type."
-//        }
-//    }
