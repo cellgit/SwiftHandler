@@ -5,8 +5,7 @@ import SwiftUI
 
 class VisionTextManager: ObservableObject {
     
-//    @Published var extractedText: String = ""
-    
+    /// 提取url文件的文字
     func getTextFromImage(url: URL, completion: @escaping (Result<String, Error>) -> Void) {
         guard let image = PlatformImage(contentsOf: url), let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
             completion(.failure(NSError(domain: "UniversalTextExtractor", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to load image."])))
@@ -22,11 +21,15 @@ class VisionTextManager: ObservableObject {
             if let observations = request.results as? [VNRecognizedTextObservation] {
                 let text = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: "\n")
                 DispatchQueue.main.async {
-//                    self.extractedText = text
                     completion(.success(text))
                 }
             }
         }
+        
+        // 设置识别语言
+//        let languages = LanguageManager.allCases.map { $0.identifier } // 这个不起作用
+        request.recognitionLanguages = ["zh-Hant", "en", "en-US", "zh-Hans", "ja", "ko", "fr", "de", "ru"]
+        request.usesLanguageCorrection = true
         
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -37,8 +40,50 @@ class VisionTextManager: ObservableObject {
         }
     }
     
+    /// 提取剪切板截图的文字
+    func getTextFromClipboard(completion: @escaping (Result<String, Error>) -> Void) {
+        guard let image = getClipboardImage(), let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
+            completion(.failure(NSError(domain: "UniversalTextExtractor", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to load image from clipboard."])))
+            return
+        }
+        
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        let request = VNRecognizeTextRequest { (request, error) in
+            guard error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            if let observations = request.results as? [VNRecognizedTextObservation] {
+                let text = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: "\n")
+                DispatchQueue.main.async {
+                    completion(.success(text))
+                }
+            }
+        }
+        
+        // 设置识别语言
+        request.recognitionLanguages = ["zh-Hant", "en", "en-US", "zh-Hans", "ja", "ko", "fr", "de", "ru"]
+        
+        request.usesLanguageCorrection = true
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                try requestHandler.perform([request])
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
     
+    private func getClipboardImage() -> NSImage? {
+        let pasteboard = NSPasteboard.general
+        if let data = pasteboard.data(forType: .png) {
+            return NSImage(data: data)
+        }
+        return nil
+    }
 }
+
 
 // 通用类型别名
 #if os(iOS)

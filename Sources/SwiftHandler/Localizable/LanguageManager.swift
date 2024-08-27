@@ -26,23 +26,11 @@ public enum LanguageManager: String, CaseIterable {
     /// 俄语
     case ru
     
-//    繁体中文:zh-Hant
-//    繁体中文(香港):zh-HK
-//    英语(UK):en-GB
-//    英语(India):en-IN
-//    英语(Australia):en-AU
-//    日本语:ja
-//    韩语:ko
-//    法语:fr
-//    德语:de
-//    俄语:ru
-    
-    
-    
     public var identifier: String {
         switch self {
         case .en_US:
-            return "en-US"
+            return "en"
+//            return "en-US"
         case .zh_Hans:
             return "zh-Hans"
         case .zh_Hant:
