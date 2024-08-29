@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct UserDefaultsManager {
-    
+public struct UserDefaultsManager {
     // 存入数据: 数据需遵守Codable协议
     // 示例:
     // let model = UserModel(json) // UserModel需遵守Codable协议
