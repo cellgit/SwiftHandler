@@ -27,15 +27,15 @@ public struct PDFKitView: View {
         PDFKitRepresentedView(url)
             .edgesIgnoringSafeArea(.all)
             .onAppear {
-                extractTextFromPDF(with: url)
-//                extractTextUsingOCR(from: url)
+//                extractTextFromPDF(with: url)
+                extractTextUsingOCR(from: url)
 //                extractRichTextFromPDF(url: url)
 //                extractTextFromPDF(url: url)
 //                extractRichTextFromPDF(url: url)
             }
             .onChange(of: url) { oldValue, newValue in
-                extractTextFromPDF(with: newValue)
-//                extractTextUsingOCR(from: newValue)
+//                extractTextFromPDF(with: newValue)
+                extractTextUsingOCR(from: newValue)
 //                extractRichTextFromPDF(url: newValue)
 //                extractTextFromPDF(url: url)
 //                extractRichTextFromPDF(url: newValue)
