@@ -46,7 +46,8 @@ public struct UniversalTextExtractor: View {
         
         switch fileType {
         case .pdf:
-            extractTextFromPDF(url: url)
+//            extractTextFromPDF(url: url)
+            getTextFromImage(url: url)
             //        case .rtf, .plainText, .utf8PlainText, .utf16PlainText:
         case .plainText, .utf8PlainText, .utf16PlainText, .utf16ExternalPlainText:
             getTextFromPlainText(url: url)
