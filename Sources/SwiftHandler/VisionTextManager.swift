@@ -72,7 +72,7 @@ class VisionTextManager: ObservableObject {
                 return
             }
             if let observations = request.results as? [VNRecognizedTextObservation] {
-                let text = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: "\n")
+                let text = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: "")
                 DispatchQueue.main.async {
                     completion(.success(text))
                 }
