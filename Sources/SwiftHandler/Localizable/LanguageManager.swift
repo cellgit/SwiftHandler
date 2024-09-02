@@ -52,21 +52,21 @@ public enum LanguageManager: String, CaseIterable {
     public var name: String {
         switch self {
         case .en_US:
-            return LocalStrings.language_english.rawValue.localized
+            return LocalizableMapper().language_english
         case .zh_Hans:
-            return LocalStrings.language_chinese_hans.rawValue.localized
-        case .zh_Hant:
-            return LocalStrings.language_chinese_hant.rawValue.localized
+            return LocalizableMapper().language_chinese_hans
         case .ja:
-            return LocalStrings.language_ja.rawValue.localized
+            return LocalizableMapper().language_ja
         case .ko:
-            return LocalStrings.language_ko.rawValue.localized
+            return LocalizableMapper().language_ko
         case .fr:
             return LocalizableMapper().language_fr
         case .de:
-            return LocalStrings.language_de.rawValue.localized
+            return LocalizableMapper().language_de
         case .ru:
-            return LocalStrings.language_ru.rawValue.localized
+            return LocalizableMapper().language_ru
+        case .zh_Hant:
+            return LocalizableMapper().language_chinese_hant
         }
     }
     
@@ -78,19 +78,24 @@ public enum LanguageManager: String, CaseIterable {
         return self.allCases.first { $0.localeLanguage == localeLanguage }
     }
     
-    public static func fromLocale() -> LanguageManager? {
-        let preferredLanguageIdentifier = Locale.preferredLanguages.first ?? "en-US"//"zh-Hans"
+    private static func selectedSourceLanguage() -> LanguageManager? {
+        let preferredLanguageIdentifier = CacheManager.shared.getSourceLanguage()
         let preferredLocaleLanguage = Locale.Language(identifier: preferredLanguageIdentifier)
         return self.from(localeLanguage: preferredLocaleLanguage)
     }
     
-    public static func fromTarget() -> LanguageManager? {
-        fromLocale()
+    private static func selectedTargetLanguage() -> LanguageManager? {
+        let preferredLanguageIdentifier = CacheManager.shared.getTargetLanguage()
+        let preferredLocaleLanguage = Locale.Language(identifier: preferredLanguageIdentifier)
+        return self.from(localeLanguage: preferredLocaleLanguage)
     }
     
-    public static func fromSource() -> LanguageManager? {
-        let identifier = fromLocale()?.identifier ?? "en-US"//"zh-Hans"
-        return identifier.contains("en") ? LanguageManager.en_US : LanguageManager.zh_Hans
+    public static func fromSource() -> LanguageManager {
+        selectedSourceLanguage() ?? .en_US
+    }
+    
+    public static func fromTarget() -> LanguageManager {
+        selectedTargetLanguage() ?? .zh_Hans
     }
     
     public static func languages() -> [LanguageManager] {
