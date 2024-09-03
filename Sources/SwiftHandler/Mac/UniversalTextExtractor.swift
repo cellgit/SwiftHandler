@@ -38,52 +38,100 @@ public struct UniversalTextExtractor: View {
         }
     }
     
+    var attributedStringType: NSAttributedString.DocumentType? {
+        guard let fileType = UTType(filenameExtension: url.pathExtension) else {
+            extractedText = "Unsupported file type."
+            return nil
+        }
+        switch fileType {
+        case .plainText, .utf8PlainText, .utf16PlainText, .utf16ExternalPlainText:
+            return .plain
+        case .rtf:
+            return .rtf
+        case .rtfd:
+            return .rtfd
+        case .html:
+            return .html
+        case .commaSeparatedText, .tabSeparatedText, .utf8TabSeparatedText:
+            return nil
+        case .xml, .yaml, .json:
+            return nil
+        case .sourceCode, .cSource, .objectiveCSource, .swiftSource, .cPlusPlusSource, .cHeader, .cPlusPlusHeader, .script:
+            return nil
+        case .log:
+            return nil
+        case .vCard:
+            return nil
+        case .m3uPlaylist:
+            return nil
+        case .png, .jpeg, .tiff, .heic, .heif:
+            return nil
+        default:
+            let lowercased = url.pathExtension.lowercased()
+            switch lowercased {
+            case "doc":
+                return .docFormat
+            case "docx":
+                return .officeOpenXML
+            case "odt":
+                return .openDocument
+            case "md":
+                return nil
+            case "webarchive":
+                return .webArchive
+            default:
+                // 不支持的类型
+                return nil
+            }
+            
+        }
+    }
+    
+    
     func extractText(from url: URL) {
         guard let fileType = UTType(filenameExtension: url.pathExtension) else {
             extractedText = "Unsupported file type."
             return
         }
         
-        switch fileType {
-        case .pdf:
-//            extractTextFromPDF(url: url)
-            getTextFromImage(url: url)
-            //        case .rtf, .plainText, .utf8PlainText, .utf16PlainText:
-        case .plainText, .utf8PlainText, .utf16PlainText, .utf16ExternalPlainText:
-            getTextFromPlainText(url: url)
-        case .commaSeparatedText, .tabSeparatedText, .utf8TabSeparatedText:
-            getTextFromDelimitedText(url: url)
-        case .rtf:
-            getTextFromRTF(url: url)
-        case .html:
-            getTextFromHTML(url: url)
-        case .xml, .yaml, .json:
-            getTextFromXMLOrYAMLOrJSON(url: url)
-        case .sourceCode, .cSource, .objectiveCSource, .swiftSource, .cPlusPlusSource, .cHeader, .cPlusPlusHeader, .script:
-            getTextFromSourceCode(url: url)
-        case .log:
-            getTextFromLog(url: url)
-        case .vCard:
-            getTextFromVCard(url: url)
-        case .m3uPlaylist:
-            getTextFromM3UPlaylist(url: url)
-        case .png, .jpeg, .tiff, .heic, .heif:
-            getTextFromImage(url: url)
-        default:
-            let lowercased = url.pathExtension.lowercased()
-            if lowercased == "md" {
-                extractTextFromMarkdown(url: url)
-            }
-            else if lowercased == "doc" || lowercased == "docx" {
-                extractTextFromWord(url: url)
-            }
-            else {
-                extractedText = "Unsupported file type."
+        if let attributedType = attributedStringType {
+            getAttributedText(with: attributedType)
+        }
+        else {
+            
+            switch fileType {
+            case .pdf:
+                getTextFromPDF(with: url)
+            case .png, .jpeg, .tiff, .heic, .heif:
+                getTextFromImage(url: url)
+            case .commaSeparatedText, .tabSeparatedText, .utf8TabSeparatedText,
+                    .xml, .yaml, .json,
+                    .sourceCode, .cSource, .objectiveCSource, .swiftSource, .cPlusPlusSource, .cHeader, .cPlusPlusHeader, .script,
+                    .log,
+                    .vCard,
+                    .m3uPlaylist:
+                getTextFromUrl(with: url)
+            default:
+                getTextFromUrl(with: url)
             }
         }
     }
     
-    func extractTextFromTXT(url: URL) {
+}
+
+
+extension UniversalTextExtractor {
+    func getAttributedText(with type: NSAttributedString.DocumentType) {
+        do {
+            let attributedString = try NSAttributedString(url: url, options: [.documentType: type], documentAttributes: nil)
+            extractedText = attributedString.string
+        } catch {
+            extractedText = "Failed to extract text from RTF: \(error)"
+        }
+    }
+    
+    
+    func getTextFromUrl(with url: URL) {
         do {
             let text = try String(contentsOf: url, encoding: .utf8)
             extractedText = text
@@ -91,16 +139,8 @@ public struct UniversalTextExtractor: View {
             print("Failed to extract text from TXT: \(error)")
         }
     }
-    func extractTextFromMarkdown(url: URL) {
-        do {
-            let text = try String(contentsOf: url, encoding: .utf8)
-            extractedText = text
-        } catch {
-            print("Failed to extract text from Markdown: \(error)")
-        }
-    }
     
-    func extractTextFromPDF(url: URL) {
+    func getTextFromPDF(with url: URL) {
         guard let pdfDocument = PDFDocument(url: url) else {
             print("Failed to open PDF document.")
             return
@@ -115,100 +155,6 @@ public struct UniversalTextExtractor: View {
         }
         extractedText = fullText
     }
-    
-    
-    
-    func extractTextFromWord(url: URL) {
-        do {
-            let attributedString = try NSAttributedString(url: url, options: [.documentType: NSAttributedString.DocumentType.officeOpenXML], documentAttributes: nil)
-            extractedText = attributedString.string
-        } catch {
-            extractedText = "Failed to extract text from Word document: \(error)"
-        }
-    }
-    
-    
-}
-
-
-extension UniversalTextExtractor {
-    func getTextFromPlainText(url: URL) {
-        do {
-            let text = try String(contentsOf: url, encoding: .utf8)
-            extractedText = text.isEmpty ? "No text found in plain text." : text
-        } catch {
-            extractedText = "Failed to extract text from plain text: \(error)"
-        }
-    }
-    func getTextFromDelimitedText(url: URL) {
-        do {
-            let text = try String(contentsOf: url, encoding: .utf8)
-            extractedText = text.isEmpty ? "No text found in delimited text." : text
-        } catch {
-            extractedText = "Failed to extract text from delimited text: \(error)"
-        }
-    }
-    
-    func getTextFromRTF(url: URL) {
-        do {
-            let attributedString = try NSAttributedString(url: url, options: [.documentType: NSAttributedString.DocumentType.rtf], documentAttributes: nil)
-            extractedText = attributedString.string
-        } catch {
-            extractedText = "Failed to extract text from RTF: \(error)"
-        }
-    }
-    func getTextFromHTML(url: URL) {
-        do {
-            let attributedString = try NSAttributedString(url: url, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-            extractedText = attributedString.string
-        } catch {
-            extractedText = "Failed to extract text from HTML: \(error)"
-        }
-    }
-    func getTextFromXMLOrYAMLOrJSON(url: URL) {
-        do {
-            let text = try String(contentsOf: url, encoding: .utf8)
-            extractedText = text.isEmpty ? "No text found in XML/YAML/JSON." : text
-        } catch {
-            extractedText = "Failed to extract text from XML/YAML/JSON: \(error)"
-        }
-    }
-    func getTextFromSourceCode(url: URL) {
-        do {
-            let text = try String(contentsOf: url, encoding: .utf8)
-            extractedText = text.isEmpty ? "No text found in source code." : text
-        } catch {
-            extractedText = "Failed to extract text from source code: \(error)"
-        }
-    }
-    func getTextFromLog(url: URL) {
-        do {
-            let text = try String(contentsOf: url, encoding: .utf8)
-            extractedText = text.isEmpty ? "No text found in log file." : text
-        } catch {
-            extractedText = "Failed to extract text from log file: \(error)"
-        }
-    }
-    func getTextFromVCard(url: URL) {
-        do {
-            let text = try String(contentsOf: url, encoding: .utf8)
-            extractedText = text.isEmpty ? "No text found in vCard." : text
-        } catch {
-            extractedText = "Failed to extract text from vCard: \(error)"
-        }
-    }
-    func getTextFromM3UPlaylist(url: URL) {
-        do {
-            let text = try String(contentsOf: url, encoding: .utf8)
-            extractedText = text.isEmpty ? "No text found in M3U playlist." : text
-        } catch {
-            extractedText = "Failed to extract text from M3U playlist: \(error)"
-        }
-    }
-    
-}
-
-extension UniversalTextExtractor {
     
     func getTextFromImage(url: URL) {
         let visionTextManager = VisionTextManager()
@@ -226,3 +172,50 @@ extension UniversalTextExtractor {
 
 
 #endif
+
+
+
+
+
+//    func extractText(from url: URL) {
+//        guard let fileType = UTType(filenameExtension: url.pathExtension) else {
+//            extractedText = "Unsupported file type."
+//            return
+//        }
+//
+//        switch fileType {
+//        case .pdf:
+//            getTextFromImage(url: url)
+//        case .plainText, .utf8PlainText, .utf16PlainText, .utf16ExternalPlainText:
+//            getTextFromPlainText(url: url)
+//        case .commaSeparatedText, .tabSeparatedText, .utf8TabSeparatedText:
+//            getTextFromDelimitedText(url: url)
+//        case .rtf:
+//            getTextFromRTF(url: url)
+//        case .html:
+//            getTextFromHTML(url: url)
+//        case .xml, .yaml, .json:
+//            getTextFromXMLOrYAMLOrJSON(url: url)
+//        case .sourceCode, .cSource, .objectiveCSource, .swiftSource, .cPlusPlusSource, .cHeader, .cPlusPlusHeader, .script:
+//            getTextFromSourceCode(url: url)
+//        case .log:
+//            getTextFromLog(url: url)
+//        case .vCard:
+//            getTextFromVCard(url: url)
+//        case .m3uPlaylist:
+//            getTextFromM3UPlaylist(url: url)
+//        case .png, .jpeg, .tiff, .heic, .heif:
+//            getTextFromImage(url: url)
+//        default:
+//            let lowercased = url.pathExtension.lowercased()
+//            if lowercased == "md" {
+//                extractTextFromMarkdown(url: url)
+//            }
+//            else if lowercased == "doc" || lowercased == "docx" {
+//                extractTextFromWord(url: url)
+//            }
+//            else {
+//                extractedText = "Unsupported file type."
+//            }
+//        }
+//    }
