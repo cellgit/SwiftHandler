@@ -8,9 +8,24 @@
 import SwiftUI
 import Combine
 
+
+// 通用类型别名
+#if os(iOS)
+import UIKit
+typealias PlatformPasteboard = UIPasteboard
+
+#elseif os(macOS)
+import AppKit
+
+typealias PlatformPasteboard = NSPasteboard
+
+#endif
+
+
 public class PasteboardMonitor: ObservableObject {
     @Published public var pasteboardContent: String = ""
-    private var pasteboardChangeCount = NSPasteboard.general.changeCount
+    private var pasteboardChangeCount = PlatformPasteboard.general.changeCount
+    
     private var timer: Timer?
     
     public init() {
@@ -33,16 +48,25 @@ public class PasteboardMonitor: ObservableObject {
     }
     
     private func checkPasteboard() {
-        let pasteboard = NSPasteboard.general
+        let pasteboard = PlatformPasteboard.general
         let currentChangeCount = pasteboard.changeCount
         
         if currentChangeCount != pasteboardChangeCount {
             pasteboardChangeCount = currentChangeCount
+            #if os(macOS)
             if let content = pasteboard.string(forType: .string) {
                 DispatchQueue.main.async {
                     self.pasteboardContent = content
                 }
             }
+            #else
+            if let content = pasteboard.string {
+                DispatchQueue.main.async {
+                    self.pasteboardContent = content
+                }
+            }
+            #endif
+            
         }
     }
 }

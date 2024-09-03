@@ -2,7 +2,7 @@
 import SwiftUI
 import Speech
 import AVFoundation
-import NaturalLanguage
+//import NaturalLanguage
 
 public class SpeechRecognizer: ObservableObject {
     private var speechRecognizer: SFSpeechRecognizer?
@@ -11,12 +11,16 @@ public class SpeechRecognizer: ObservableObject {
     private var recognitionTask: SFSpeechRecognitionTask?
     
     @Published public var recognizedText: String = ""
-    @Published public var detectedLanguage: String = "en-US" // Default language
-    @Published public var isRecognizing: Bool = false // 是否正在识别的状态变量
+    @Published public var detectedLanguage: String
+    @Published public var isRecognizing: Bool = false
     @Published public var errorMessage: String? = nil
-    @Published public var waveformValues: [Float] = [] // 音频波形值
+    @Published public var waveformValues: [Float] = []
     
-    public init() {}
+    // 初始化时传入语言代码，例如 "en-US", "zh-Hans", "fr-FR" 等
+    public init(languageCode: String) {
+        self.detectedLanguage = languageCode
+        self.speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: languageCode))
+    }
     
     public func requestAuthorization(completion: @escaping (SFSpeechRecognizerAuthorizationStatus) -> Void) {
         SFSpeechRecognizer.requestAuthorization { authStatus in
@@ -34,7 +38,6 @@ public class SpeechRecognizer: ObservableObject {
             return
         }
         
-        // 检查音频引擎是否正在运行
         if audioEngine.isRunning {
             print("Audio engine is already running.")
             return
@@ -47,23 +50,14 @@ public class SpeechRecognizer: ObservableObject {
         }
         
         let inputNode = audioEngine.inputNode
-        
         recognitionRequest.shouldReportPartialResults = true
         
-        // Initialize the recognizer with a default language (en-US)
-        self.speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: detectedLanguage))
-        
-        isRecognizing = true // 标记为正在识别
+        isRecognizing = true
         
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { result, error in
             if let result = result {
                 DispatchQueue.main.async {
-                    // 通过累积所有的部分结果来构建完整的文本
                     self.recognizedText += result.bestTranscription.formattedString
-//                    self.recognizedText = result.bestTranscription.formattedString
-                    
-                    // Detect the language from the partial result and update the recognizer
-                    self.detectLanguage(from: self.recognizedText)
                 }
             }
             
@@ -78,10 +72,8 @@ public class SpeechRecognizer: ObservableObject {
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, when in
             recognitionRequest.append(buffer)
             
-            // 处理音频数据来生成波形
             let channelData = buffer.floatChannelData?[0]
             let channelDataValueArray = stride(from: 0, to: Int(buffer.frameLength), by: buffer.stride).map { channelData?[$0] ?? 0.0 }
-            
             let rms = sqrt(channelDataValueArray.map { $0 * $0 }.reduce(0, +) / Float(buffer.frameLength))
             
             DispatchQueue.main.async {
@@ -90,7 +82,6 @@ public class SpeechRecognizer: ObservableObject {
                     self.waveformValues.removeFirst()
                 }
             }
-            
         }
         
         audioEngine.prepare()
@@ -113,10 +104,141 @@ public class SpeechRecognizer: ObservableObject {
         recognitionTask?.finish()
         recognitionTask = nil
         
-        isRecognizing = false // 标记为未在识别
+        isRecognizing = false
     }
     
+    private func handleRecognitionError(_ error: Error) {
+        DispatchQueue.main.async {
+            self.errorMessage = "Recognition error: \(error.localizedDescription)"
+            self.isRecognizing = false
+        }
+        print("Handled recognition error: \(error.localizedDescription)")
+    }
+}
+
+//public class SpeechRecognizer: ObservableObject {
+//    private var speechRecognizer: SFSpeechRecognizer?
+//    private let audioEngine = AVAudioEngine()
+//    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+//    private var recognitionTask: SFSpeechRecognitionTask?
+//    
+//    @Published public var recognizedText: String = ""
+//    @Published public var detectedLanguage: String = "en-US" // Default language
+//    @Published public var isRecognizing: Bool = false // 是否正在识别的状态变量
+//    @Published public var errorMessage: String? = nil
+//    @Published public var waveformValues: [Float] = [] // 音频波形值
+//    
+//    public init() {}
+//    
+//    public func requestAuthorization(completion: @escaping (SFSpeechRecognizerAuthorizationStatus) -> Void) {
+//        SFSpeechRecognizer.requestAuthorization { authStatus in
+//            DispatchQueue.main.async {
+//                completion(authStatus)
+//            }
+//        }
+//    }
+//    
+//    public func startRecording() throws {
+//        errorMessage = nil
+//        recognizedText = ""
+//        guard !isRecognizing else {
+//            print("Recognition is already in progress.")
+//            return
+//        }
+//        
+//        // 检查音频引擎是否正在运行
+//        if audioEngine.isRunning {
+//            print("Audio engine is already running.")
+//            return
+//        }
+//        
+//        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+//        
+//        guard let recognitionRequest = recognitionRequest else {
+//            fatalError("Unable to create a SFSpeechAudioBufferRecognitionRequest object")
+//        }
+//        
+//        let inputNode = audioEngine.inputNode
+//        
+//        recognitionRequest.shouldReportPartialResults = true
+//        
+//        // Initialize the recognizer with a default language (en-US)
+//        self.speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: detectedLanguage))
+//        
+//        isRecognizing = true // 标记为正在识别
+//        
+//        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { result, error in
+//            if let result = result {
+//                DispatchQueue.main.async {
+//                    // 通过累积所有的部分结果来构建完整的文本
+//                    self.recognizedText += result.bestTranscription.formattedString
+////                    self.recognizedText = result.bestTranscription.formattedString
+//                    
+//                    // Detect the language from the partial result and update the recognizer
+//                    self.detectLanguage(from: self.recognizedText)
+//                }
+//            }
+//            
+//            if let error = error {
+//                print("Recognition error: \(error)")
+//                self.stopRecording()
+//                self.handleRecognitionError(error)
+//            }
+//        }
+//        
+//        let recordingFormat = inputNode.outputFormat(forBus: 0)
+//        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, when in
+//            recognitionRequest.append(buffer)
+//            
+//            // 处理音频数据来生成波形
+//            let channelData = buffer.floatChannelData?[0]
+//            let channelDataValueArray = stride(from: 0, to: Int(buffer.frameLength), by: buffer.stride).map { channelData?[$0] ?? 0.0 }
+//            
+//            let rms = sqrt(channelDataValueArray.map { $0 * $0 }.reduce(0, +) / Float(buffer.frameLength))
+//            
+//            DispatchQueue.main.async {
+//                self.waveformValues.append(rms)
+//                if self.waveformValues.count > 100 {
+//                    self.waveformValues.removeFirst()
+//                }
+//            }
+//            
+//        }
+//        
+//        audioEngine.prepare()
+//        
+//        do {
+//            try audioEngine.start()
+//        } catch {
+//            print("Audio engine couldn't start: \(error.localizedDescription)")
+//            stopRecording()
+//        }
+//    }
+//    
+//    public func stopRecording() {
+//        guard isRecognizing else { return }
+//        audioEngine.stop()
+//        audioEngine.inputNode.removeTap(onBus: 0)
+//        
+//        recognitionRequest?.endAudio()
+//        recognitionTask?.cancel()
+//        recognitionTask?.finish()
+//        recognitionTask = nil
+//        
+//        isRecognizing = false // 标记为未在识别
+//    }
+//    
+//    
+//    private var lastLanguageDetectionTime: Date = Date()
+//    
 //    private func detectLanguage(from text: String) {
+//        let currentTime = Date()
+//        if currentTime.timeIntervalSince(lastLanguageDetectionTime) < 5 {
+//            // 如果上次语言检测是在5秒之内，不重新检测
+//            return
+//        }
+//        lastLanguageDetectionTime = currentTime
+//        
 //        let languageRecognizer = NLLanguageRecognizer()
 //        languageRecognizer.processString(text)
 //        
@@ -125,55 +247,26 @@ public class SpeechRecognizer: ObservableObject {
 //                self.detectedLanguage = languageCode
 //                print("Detected language: \(languageCode)")
 //                
-//                // Update the speech recognizer with the new language
+//                // 更新语音识别器并重启识别
 //                self.speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: languageCode))
-//                
-//                // Restart recognition with the new language
 //                self.stopRecording()
 //                try? self.startRecording()
 //            }
 //        }
 //    }
-    
-    
-    private var lastLanguageDetectionTime: Date = Date()
-    
-    private func detectLanguage(from text: String) {
-        let currentTime = Date()
-        if currentTime.timeIntervalSince(lastLanguageDetectionTime) < 5 {
-            // 如果上次语言检测是在5秒之内，不重新检测
-            return
-        }
-        lastLanguageDetectionTime = currentTime
-        
-        let languageRecognizer = NLLanguageRecognizer()
-        languageRecognizer.processString(text)
-        
-        if let languageCode = languageRecognizer.dominantLanguage?.rawValue {
-            if languageCode != self.detectedLanguage {
-                self.detectedLanguage = languageCode
-                print("Detected language: \(languageCode)")
-                
-                // 更新语音识别器并重启识别
-                self.speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: languageCode))
-                self.stopRecording()
-                try? self.startRecording()
-            }
-        }
-    }
-    
-    
-    
-    
-    private func handleRecognitionError(_ error: Error) {
-        // 根据需要处理错误，比如提示用户或尝试恢复
-        DispatchQueue.main.async {
-                self.errorMessage = "Recognition error: \(error.localizedDescription)"
-                self.isRecognizing = false // 标记为未在识别
-            }
-        print("Handled recognition error: \(error.localizedDescription)")
-    }
-}
+//    
+//    
+//    
+//    
+//    private func handleRecognitionError(_ error: Error) {
+//        // 根据需要处理错误，比如提示用户或尝试恢复
+//        DispatchQueue.main.async {
+//                self.errorMessage = "Recognition error: \(error.localizedDescription)"
+//                self.isRecognizing = false // 标记为未在识别
+//            }
+//        print("Handled recognition error: \(error.localizedDescription)")
+//    }
+//}
 
 
 /// 语音输入波形图

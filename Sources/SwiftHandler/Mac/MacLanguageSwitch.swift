@@ -26,7 +26,7 @@ public struct MacLanguageSwitch: View {
     }
     
     public var body: some View {
-        HStack(alignment: .center, spacing: 0) {
+        HStack(alignment: .center, spacing: 2) {
             Menu {
                 ForEach(LanguageManager.allCases, id: \.self) { language in
                     Button(action: {
