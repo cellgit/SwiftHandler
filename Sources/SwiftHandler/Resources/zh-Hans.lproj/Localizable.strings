@@ -18,5 +18,8 @@
 
 
 /// 内容
-"quick_mode" = "快捷模式";
+"quick_mode" = "快捷翻译";
 "document_translation" = "文件翻译";
+"screenshoot_translation" = "截屏翻译";
+"screenshoot_translation_action" = "截屏翻译";
+

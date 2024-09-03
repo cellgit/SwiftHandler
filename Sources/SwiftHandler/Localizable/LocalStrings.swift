@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LocalStrings: String {
+public enum LocalStrings: String {
     
     case language_english
     case language_chinese_hans
@@ -20,6 +20,8 @@ enum LocalStrings: String {
     
     case quick_mode
     case document_translation
+    case screenshoot_translation
+    case screenshoot_translation_action
     
     /// 本地化显示的text
     public var text: String {

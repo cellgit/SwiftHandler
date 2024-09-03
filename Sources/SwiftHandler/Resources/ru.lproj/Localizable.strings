@@ -18,5 +18,7 @@
 
 
 /// 内容
-"quick_mode" = "Quick Mode";
-"document_translation" = "Document Translation";
+"quick_mode" = "Quick";
+"document_translation" = "Document";
+"screenshoot_translation" = "Screenshoot";
+"screenshoot_translation_action" = "Translate Screenshoot";

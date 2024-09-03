@@ -10,8 +10,8 @@
 import SwiftUI
 import PDFKit
 import Vision
-import QuickLook
 import UniformTypeIdentifiers
+//import QuickLook
 
 public struct UniversalTextExtractor: View {
     
@@ -172,50 +172,3 @@ extension UniversalTextExtractor {
 
 
 #endif
-
-
-
-
-
-//    func extractText(from url: URL) {
-//        guard let fileType = UTType(filenameExtension: url.pathExtension) else {
-//            extractedText = "Unsupported file type."
-//            return
-//        }
-//
-//        switch fileType {
-//        case .pdf:
-//            getTextFromImage(url: url)
-//        case .plainText, .utf8PlainText, .utf16PlainText, .utf16ExternalPlainText:
-//            getTextFromPlainText(url: url)
-//        case .commaSeparatedText, .tabSeparatedText, .utf8TabSeparatedText:
-//            getTextFromDelimitedText(url: url)
-//        case .rtf:
-//            getTextFromRTF(url: url)
-//        case .html:
-//            getTextFromHTML(url: url)
-//        case .xml, .yaml, .json:
-//            getTextFromXMLOrYAMLOrJSON(url: url)
-//        case .sourceCode, .cSource, .objectiveCSource, .swiftSource, .cPlusPlusSource, .cHeader, .cPlusPlusHeader, .script:
-//            getTextFromSourceCode(url: url)
-//        case .log:
-//            getTextFromLog(url: url)
-//        case .vCard:
-//            getTextFromVCard(url: url)
-//        case .m3uPlaylist:
-//            getTextFromM3UPlaylist(url: url)
-//        case .png, .jpeg, .tiff, .heic, .heif:
-//            getTextFromImage(url: url)
-//        default:
-//            let lowercased = url.pathExtension.lowercased()
-//            if lowercased == "md" {
-//                extractTextFromMarkdown(url: url)
-//            }
-//            else if lowercased == "doc" || lowercased == "docx" {
-//                extractTextFromWord(url: url)
-//            }
-//            else {
-//                extractedText = "Unsupported file type."
-//            }
-//        }
-//    }

@@ -27,6 +27,9 @@ struct LocalizableMapper {
     
     let quick_mode = NSLocalizedString("quick_mode", bundle: .module, comment: "快捷模式-内容")
     let document_translation = NSLocalizedString("document_translation", bundle: .module, comment: "文件翻译-内容")
+    let screenshoot_translation = NSLocalizedString("screenshoot_translation", bundle: .module, comment: "截屏翻译-内容")
+    let screenshoot_translation_action = NSLocalizedString("screenshoot_translation_action", bundle: .module, comment: "截屏翻译事件-内容")
+    
 
 }
 
