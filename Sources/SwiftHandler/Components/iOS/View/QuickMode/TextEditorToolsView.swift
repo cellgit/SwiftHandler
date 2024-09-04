@@ -5,6 +5,8 @@
 //  Created by admin on 2024/9/4.
 //
 
+#if os(iOS)
+
 import SwiftUI
 import SwiftHandler
 
@@ -75,3 +77,5 @@ public struct TextEditorToolsView: View {
     TextEditorToolsView(text: .constant("这是输入的文字"))
 //    TextEditorToolsView()
 }
+
+#endif

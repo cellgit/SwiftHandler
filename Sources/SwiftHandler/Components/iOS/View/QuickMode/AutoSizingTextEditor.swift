@@ -5,6 +5,8 @@
 //  Created by admin on 2024/9/4.
 //
 
+#if os(iOS)
+
 import SwiftUI
 
 public struct AutoSizingTextEditor: View {
@@ -70,3 +72,4 @@ public struct AutoSizingTextEditor: View {
     }
 }
 
+#endif

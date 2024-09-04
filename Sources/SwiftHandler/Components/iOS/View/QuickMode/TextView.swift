@@ -5,6 +5,8 @@
 //  Created by admin on 2024/9/4.
 //
 
+#if os(iOS)
+
 import SwiftUI
 
 public struct TextView: View {
@@ -54,3 +56,5 @@ public struct TextView: View {
 #Preview {
     TextView(text: .constant("avwedbvha"), textHeight: .constant(44))
 }
+
+#endif
