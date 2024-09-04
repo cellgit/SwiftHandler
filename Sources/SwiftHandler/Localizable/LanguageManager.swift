@@ -13,8 +13,6 @@ public enum LanguageManager: String, CaseIterable {
     case en_US
     /// 简体中文
     case zh_Hans
-    /// 繁体中文
-    case zh_Hant
     /// 日语
     case ja
     /// 韩语
@@ -25,6 +23,8 @@ public enum LanguageManager: String, CaseIterable {
     case de
     /// 俄语
     case ru
+    /// 繁体中文
+    case zh_Hant
     
     public var identifier: String {
         switch self {
@@ -33,8 +33,6 @@ public enum LanguageManager: String, CaseIterable {
 //            return "en-US"
         case .zh_Hans:
             return "zh-Hans"
-        case .zh_Hant:
-            return "zh-Hant"
         case .ja:
             return "ja"
         case .ko:
@@ -45,6 +43,8 @@ public enum LanguageManager: String, CaseIterable {
             return "de"
         case .ru:
             return "ru"
+        case .zh_Hant:
+            return "zh-Hant"
         }
         
     }
@@ -52,21 +52,21 @@ public enum LanguageManager: String, CaseIterable {
     public var name: String {
         switch self {
         case .en_US:
-            return LocalizableMapper().language_english
+            return LocalStrings.language_english.text
         case .zh_Hans:
-            return LocalizableMapper().language_chinese_hans
+            return LocalStrings.language_chinese_hans.text
         case .ja:
-            return LocalizableMapper().language_ja
+            return LocalStrings.language_ja.text
         case .ko:
-            return LocalizableMapper().language_ko
+            return LocalStrings.language_ko.text
         case .fr:
-            return LocalizableMapper().language_fr
+            return LocalStrings.language_fr.text
         case .de:
-            return LocalizableMapper().language_de
+            return LocalStrings.language_de.text
         case .ru:
-            return LocalizableMapper().language_ru
+            return LocalStrings.language_ru.text
         case .zh_Hant:
-            return LocalizableMapper().language_chinese_hant
+            return LocalStrings.language_chinese_hant.text
         }
     }
     
