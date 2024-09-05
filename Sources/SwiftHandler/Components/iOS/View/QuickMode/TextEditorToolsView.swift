@@ -14,12 +14,17 @@ public struct TextEditorToolsView: View {
     
     @Binding var text: String
     
+    @Binding var targetText: String
+    
     @State var isSourceTextEmpty: Bool = true
     
     @State var isStar: Bool = false
     
-    public init(text: Binding<String>, isSourceTextEmpty: Bool = true, isStar: Bool = false) {
+    @State var isCopied: Bool = false
+    
+    public init(text: Binding<String>, targetText: Binding<String>, isSourceTextEmpty: Bool = true, isStar: Bool = false) {
         self._text = text
+        self._targetText = targetText
         self.isSourceTextEmpty = isSourceTextEmpty
         self.isStar = isStar
     }
@@ -48,6 +53,27 @@ public struct TextEditorToolsView: View {
             Spacer()
             
             if !isSourceTextEmpty {
+                Button(action: {
+                    if !targetText.isEmpty {
+                        PasteboardManager.shared.copy(targetText)
+                        isCopied = true
+                        // 3秒后将 isCopy 设为 false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            isCopied = false
+                        }
+                    }
+                    else {
+                        debugPrint("复制的译文不能为空")
+                    }
+                }, label: {
+                    Image(systemName: "heart.text.clipboard")
+                        .symbolRenderingMode(isCopied ? .multicolor : .monochrome)
+                        .foregroundColor(Color(.label))
+                })
+            }
+            
+            
+            if !isSourceTextEmpty {
                 Button {
                     isStar = !isStar
                 } label: {
@@ -67,12 +93,18 @@ public struct TextEditorToolsView: View {
                 isSourceTextEmpty = newValue.isEmpty
             }
         }
+        .onChange(of: targetText) { oldValue, newValue in
+            if oldValue != newValue {
+                isCopied = false
+            }
+        }
+        
     }
     
 }
 
 #Preview {
-    TextEditorToolsView(text: .constant("这是输入的文字"))
+    TextEditorToolsView(text: .constant("这是输入的文字"), targetText: .constant("译文内容"))
 }
 
 #endif
