@@ -60,6 +60,7 @@ struct GradientBackground: ViewModifier {
                 endPoint: linearEndPoint
             )
             .opacity(linearOpacity)
+            .ignoresSafeArea()
             
             content
         }

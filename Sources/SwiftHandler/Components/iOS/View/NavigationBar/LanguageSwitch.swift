@@ -14,8 +14,6 @@ import UIKit
 import SwiftUI
 import SwiftHandler
 
-// arrow.left.arrow.right
-
 public struct LanguageSwitch: View {
     /// 源语言
     @Binding var source: LanguageManager
@@ -54,8 +52,6 @@ public struct LanguageSwitch: View {
                         Text(source.name)
                             .font(.system(size: 15, weight: .medium, design: .monospaced))
                             .padding(4)
-//                        Image(systemName: "chevron.down")
-//                            .font(Font.system(size: 14, weight: .regular))
                     }
                 }
                 .foregroundColor(.primary)
@@ -88,8 +84,6 @@ public struct LanguageSwitch: View {
                         Text(target.name)
                             .font(.system(size: 15, weight: .medium, design: .rounded))
                             .padding(4)
-//                        Image(systemName: "chevron.down")
-//                            .font(Font.system(size: 14, weight: .regular))
                     }
                 }
                 .foregroundColor(.primary)
@@ -97,18 +91,17 @@ public struct LanguageSwitch: View {
                 .frame(width: (UIScreen.main.bounds.size.width-32)/3, height: 44, alignment: .leading)
             }
             .frame(width: UIScreen.main.bounds.size.width, height: 44)
-//            .background(Color(.systemBlue))
             .sheet(isPresented: $showSourceLanguageView) {
                 LanguagePickerView(selectedLanguage: $source, languages: languages)
                     .presentationDetents([.fraction(0.5), .fraction(0.9)])
                     .presentationDragIndicator(.hidden)
-                    .presentationCornerRadius(16)
+                    .presentationCornerRadius(32)
             }
             .sheet(isPresented: $showTargetLanguageView) {
                 LanguagePickerView(selectedLanguage: $target, languages: languages)
                     .presentationDetents([.fraction(0.5), .fraction(0.9)])
                     .presentationDragIndicator(.hidden)
-                    .presentationCornerRadius(16)
+                    .presentationCornerRadius(32)
             }
         }
         
@@ -120,51 +113,44 @@ public struct LanguageSwitch: View {
     LanguageSwitch(source: .constant(.zh_Hans), target: .constant(.en_US))
 }
 
-struct LanguagePickerView: View {
-    
-    @Binding var selectedLanguage: LanguageManager
-    
-    let languages: [LanguageManager]
-    
-    var body: some View {
-        
-        ScrollView {
-            
-            GeometryReader { proxy in
-                
-                LazyVStack(alignment: .center, spacing: 0) {
-                    ForEach(languages, id: \.self) { language in
-                        LazyHStack {
-                            Button(action: {
-                                selectedLanguage = language
-                                debugPrint("selectedLanguage is \(selectedLanguage)")
-                            }) {
-                                HStack {
-                                    Text(language.name)
-                                    if language == selectedLanguage {
-                                        Image(systemName: "checkmark")
-                                            .padding()
-                                    }
-                                }
-                                
-                            }
-                            .foregroundColor(Color.primary)
-                            .frame(width: proxy.size.width, height: 50, alignment: .center)
-                            
-                        }
-                        
-                        
-                    }
-                }
-                
-            }
-            
-        }
-        .gradientTheme1
-        
-        
-    }
-}
-
 #endif
 
+
+//    var body: some View {
+//
+//        ScrollView {
+//
+//            GeometryReader { proxy in
+//
+//                LazyVStack(alignment: .center, spacing: 0) {
+//                    ForEach(languages, id: \.self) { language in
+//                        LazyHStack {
+//                            Button(action: {
+//                                selectedLanguage = language
+//                                debugPrint("selectedLanguage is \(selectedLanguage)")
+//                            }) {
+//                                HStack {
+//                                    Text(language.name)
+//                                    if language == selectedLanguage {
+//                                        Image(systemName: "checkmark")
+//                                            .padding()
+//                                    }
+//                                }
+//
+//                            }
+//                            .foregroundColor(Color.primary)
+//                            .frame(width: proxy.size.width, height: 50, alignment: .center)
+//
+//                        }
+//
+//
+//                    }
+//                }
+//
+//            }
+//
+//        }
+//        .gradientTheme1
+//
+//
+//    }
