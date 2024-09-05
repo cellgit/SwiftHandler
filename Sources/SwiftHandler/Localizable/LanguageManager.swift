@@ -26,6 +26,37 @@ public enum LanguageManager: String, CaseIterable {
     /// 繁体中文
     case zh_Hant
     
+    
+    /// 英式英语
+    case en_GB
+    /// 阿拉伯语
+    case ar
+    /// 波兰语
+    case pl
+    /// 荷兰语
+    case nl
+    /// 葡萄牙语(巴西)
+    case pt_BR
+    /// 泰语
+    case th
+    /// 土耳其语
+    case tr
+    /// 乌克兰语
+    case uk
+    /// 西班牙语(西班牙)
+    case es
+    
+    /// 意大利语
+    case it
+    /// 印地语
+    case hi
+    /// 印度尼西亚语
+    case id
+    /// 越南语
+    case vi
+    
+    
+    
     public var identifier: String {
         switch self {
         case .en_US:
@@ -45,6 +76,32 @@ public enum LanguageManager: String, CaseIterable {
             return "ru"
         case .zh_Hant:
             return "zh-Hant"
+        case .en_GB:
+            return "en_GB"
+        case .ar:
+            return "ar"
+        case .pl:
+            return "pl"
+        case .nl:
+            return "nl"
+        case .pt_BR:
+            return "pt_BR"
+        case .th:
+            return "th"
+        case .tr:
+            return "tr"
+        case .uk:
+            return "uk"
+        case .es:
+            return "es"
+        case .it:
+            return "it"
+        case .hi:
+            return "hi"
+        case .id:
+            return "id"
+        case .vi:
+            return "vi"
         }
         
     }
@@ -67,6 +124,32 @@ public enum LanguageManager: String, CaseIterable {
             return LocalStrings.language_ru.text
         case .zh_Hant:
             return LocalStrings.language_chinese_hant.text
+        case .en_GB:
+            return LocalStrings.language_english_gb.text
+        case .ar:
+            return LocalStrings.language_ar.text
+        case .pl:
+            return LocalStrings.language_pl.text
+        case .nl:
+            return LocalStrings.language_nl.text
+        case .pt_BR:
+            return LocalStrings.language_pt_br.text
+        case .th:
+            return LocalStrings.language_th.text
+        case .tr:
+            return LocalStrings.language_tr.text
+        case .uk:
+            return LocalStrings.language_uk.text
+        case .es:
+            return LocalStrings.language_es.text
+        case .it:
+            return LocalStrings.language_it.text
+        case .hi:
+            return LocalStrings.language_hi.text
+        case .id:
+            return LocalStrings.language_id.text
+        case .vi:
+            return LocalStrings.language_vi.text
         }
     }
     
