@@ -32,6 +32,7 @@ public struct MacLanguageSwitch: View {
                     Button(action: {
                         withAnimation() {
                             source = language
+                            CacheManager.shared.saveSourceLanguage(with: language.identifier)
                         }
                     }) {
                         Text(language.name)
@@ -43,8 +44,11 @@ public struct MacLanguageSwitch: View {
             .fixedSize()
             
             Button {
-                withAnimation() {
+                withAnimation {
                     swap(&source, &target)
+                } completion: {
+                    CacheManager.shared.saveSourceLanguage(with: source.identifier)
+                    CacheManager.shared.saveTargetLanguage(with: target.identifier)
                 }
             } label: {
                 Image(systemName: "arrow.left.arrow.right")
@@ -57,6 +61,7 @@ public struct MacLanguageSwitch: View {
                     Button(action: {
                         withAnimation() {
                             target = language
+                            CacheManager.shared.saveTargetLanguage(with: language.identifier)
                         }
                     }) {
                         Text(language.name)

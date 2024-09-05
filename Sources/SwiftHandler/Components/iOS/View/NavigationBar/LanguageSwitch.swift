@@ -63,6 +63,9 @@ public struct LanguageSwitch: View {
                     debugPrint("exchange source and target language")
                     withAnimation {
                         swap(&source, &target)
+                    } completion: {
+                        CacheManager.shared.saveSourceLanguage(with: source.identifier)
+                        CacheManager.shared.saveTargetLanguage(with: target.identifier)
                     }
                 } label: {
                     Image(systemName: "arrow.left.arrow.right")
@@ -102,6 +105,12 @@ public struct LanguageSwitch: View {
                     .presentationDetents([.fraction(0.5), .fraction(0.9)])
                     .presentationDragIndicator(.hidden)
                     .presentationCornerRadius(32)
+            }
+            .onChange(of: source) { oldValue, newValue in
+                CacheManager.shared.saveSourceLanguage(with: newValue.identifier)
+            }
+            .onChange(of: target) { oldValue, newValue in
+                CacheManager.shared.saveTargetLanguage(with: newValue.identifier)
             }
         }
         
