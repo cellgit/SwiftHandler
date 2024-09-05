@@ -40,7 +40,7 @@ public struct TextEditorToolsView: View {
                 } label: {
                     HStack(spacing: 4) {
                         Image(systemName: "document.on.clipboard")
-                        Text("粘贴")
+                        Text(LocalStrings.paste.text)
                             .font(.system(size: 14, weight: .medium, design: .monospaced))
                     }
                     .padding(8)
@@ -55,7 +55,7 @@ public struct TextEditorToolsView: View {
                 } label: {
                     HStack(spacing: 4) {
                         Image(systemName: "eraser")
-                        Text("清除")
+                        Text(LocalStrings.clear.text)
                             .font(.system(size: 14, weight: .medium, design: .monospaced))
                     }
                     .padding(8)
