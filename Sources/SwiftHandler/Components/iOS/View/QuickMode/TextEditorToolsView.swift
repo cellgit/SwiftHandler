@@ -36,10 +36,10 @@ public struct TextEditorToolsView: View {
                     HStack(spacing: 4) {
                         Image(systemName: "document.on.clipboard")
                         Text("粘贴")
+                            .font(.system(size: 14, weight: .medium, design: .monospaced))
                     }
                     .foregroundColor(Color(.label))
                     .padding(8)
-//                    .background(Color("bg_blue", bundle: .module))
                     .background(Color("bg_blue"))
                     .cornerRadius(30)
                 }
@@ -56,10 +56,8 @@ public struct TextEditorToolsView: View {
                             .symbolRenderingMode(isStar ? .multicolor : .monochrome)
                     }
                     .foregroundColor(Color(.label))
-                    .padding(8)
                 }
             }
-            
         }
         .onChange(of: text) { oldValue, newValue in
             if oldValue != newValue {
@@ -70,12 +68,11 @@ public struct TextEditorToolsView: View {
             }
         }
     }
-        
+    
 }
 
 #Preview {
     TextEditorToolsView(text: .constant("这是输入的文字"))
-//    TextEditorToolsView()
 }
 
 #endif

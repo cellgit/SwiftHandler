@@ -23,41 +23,35 @@ public struct AutoSizingTextEditor: View {
     }
     
     public var body: some View {
-        
-        ZStack(alignment: .leading) {
-            
-            TextEditor(text: $text)
-                .scrollDismissesKeyboard(.immediately)
-                .scrollContentBackground(.hidden)
-                .opacity(text.isEmpty ? 0.5 : 1)
-                .padding(8)
-                .frame(minHeight: 40, maxHeight: 300)
-                .fixedSize(horizontal: false, vertical: true)
-                .background(
-                    RoundedRectangle(cornerRadius: 8) // 设置圆角背景
-                        .stroke(Color.clear, lineWidth: 1) // 外边框
-                        .background(RoundedRectangle(cornerRadius: 8).fill(Color(.systemBackground))) // 内部填充
-                        .opacity(0.8)
-                )
-                .background(GeometryReader { geometry in
-                    Color.clear
-                        .onAppear {
-                            adjustTextViewHeight(geometry: geometry)
-                        }
-                        .onChange(of: text) { oldValue, newValue in
-                            adjustTextViewHeight(geometry: geometry)
-                        }
-                })
-            
-            if text.isEmpty {
-                Text(placeholder)
-                    .foregroundColor(Color.gray)
-                    .padding(.leading, 14)
+        TextEditor(text: $text)
+            .scrollDismissesKeyboard(.immediately)
+            .scrollContentBackground(.hidden)
+            .opacity(text.isEmpty ? 0.5 : 1)
+            .padding(6)
+            .frame(minHeight: 40, maxHeight: 280)
+            .fixedSize(horizontal: false, vertical: true)
+            .background(
+                RoundedRectangle(cornerRadius: 10) // 设置圆角背景
+                    .stroke(Color.clear, lineWidth: 1) // 外边框
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color(.systemBackground))) // 内部填充
+                    .opacity(0.8)
+            )
+            .background(GeometryReader { geometry in
+                Color.clear
+                    .onAppear {
+                        adjustTextViewHeight(geometry: geometry)
+                    }
+                    .onChange(of: text) { oldValue, newValue in
+                        adjustTextViewHeight(geometry: geometry)
+                    }
+            })
+            .overlay(alignment: .leading) {
+                if text.isEmpty {
+                    Text(placeholder)
+                        .foregroundColor(Color.gray)
+                        .padding(.leading, 12)
+                }
             }
-            
-        }
-        
-        
         
     }
     

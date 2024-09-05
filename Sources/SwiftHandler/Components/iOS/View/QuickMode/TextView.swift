@@ -30,7 +30,7 @@ public struct TextView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .lineSpacing(2)
                     .fontDesign(.monospaced)
-                    .padding()
+                    .padding(12)
                     .background(GeometryReader { innerGeometry in
                         Color.clear
                             .onAppear {
