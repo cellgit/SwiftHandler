@@ -84,14 +84,14 @@ public struct TextEditorToolsView: View {
                         .symbolRenderingMode(isCopied ? .multicolor : .monochrome)
                 })
                 
-                Button {
-                    isStar = !isStar
-                } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "star")
-                            .symbolRenderingMode(isStar ? .multicolor : .monochrome)
-                    }
-                }
+//                Button {
+//                    isStar = !isStar
+//                } label: {
+//                    HStack(spacing: 4) {
+//                        Image(systemName: "star")
+//                            .symbolRenderingMode(isStar ? .multicolor : .monochrome)
+//                    }
+//                }
             }
         }
         .foregroundColor(Color(.label))
