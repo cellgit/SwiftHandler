@@ -43,7 +43,21 @@ public struct TextEditorToolsView: View {
                         Text("粘贴")
                             .font(.system(size: 14, weight: .medium, design: .monospaced))
                     }
-                    .foregroundColor(Color(.label))
+                    .padding(8)
+                    .background(Color("bg_blue"))
+                    .cornerRadius(30)
+                }
+            }
+            else {
+                Button {
+                    text = ""
+                    targetText = ""
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "eraser")
+                        Text("清除")
+                            .font(.system(size: 14, weight: .medium, design: .monospaced))
+                    }
                     .padding(8)
                     .background(Color("bg_blue"))
                     .cornerRadius(30)
@@ -68,12 +82,8 @@ public struct TextEditorToolsView: View {
                 }, label: {
                     Image(systemName: "heart.text.clipboard")
                         .symbolRenderingMode(isCopied ? .multicolor : .monochrome)
-                        .foregroundColor(Color(.label))
                 })
-            }
-            
-            
-            if !isSourceTextEmpty {
+                
                 Button {
                     isStar = !isStar
                 } label: {
@@ -81,10 +91,10 @@ public struct TextEditorToolsView: View {
                         Image(systemName: "star")
                             .symbolRenderingMode(isStar ? .multicolor : .monochrome)
                     }
-                    .foregroundColor(Color(.label))
                 }
             }
         }
+        .foregroundColor(Color(.label))
         .onChange(of: text) { oldValue, newValue in
             if oldValue != newValue {
                 isStar = false

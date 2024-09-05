@@ -1,0 +1,31 @@
+
+"language_english" = "Engels";
+"language_chinese_hans" = "Chinees";
+"language_fr" = "Frans";
+"language_de" = "Duits";
+"language_ja" = "Japans";
+"language_ko" = "Koreaans";
+"language_ru" = "Russisch";
+"language_ar" = "Arabisch";
+"language_pl" = "Pools";
+"language_nl" = "Nederlands";
+"language_pt_br" = "Portugees (Brazilië)";
+"language_th" = "Thais";
+"language_tr" = "Turks";
+"language_uk" = "Oekraïens";
+"language_es" = "Spaans (Spanje)";
+"language_it" = "Italiaans";
+"language_hi" = "Hindi";
+"language_id" = "Indonesisch";
+"language_vi" = "Vietnamees";
+"language_english_uk" = "Engels (VK)";
+"language_chinese_hant" = "Chinees (Traditioneel)";
+
+"quick_mode" = "Snel";
+"document_translation" = "Document";
+"screenshoot_translation" = "Screenshotvertaling";
+"screenshoot_translation_action" = "Screenshot vertalen";
+"clear" = "Wissen";
+"paste" = "Plakken";
+"copied" = "Gekopieerd";
+"placeholder_enter_text" = "Voer tekst in";

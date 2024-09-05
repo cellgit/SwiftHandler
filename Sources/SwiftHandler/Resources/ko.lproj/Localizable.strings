@@ -1,24 +1,31 @@
-/* 
-  Localizable.strings
-  SwiftHandlerDemo
 
-  Created by admin on 2024/8/27.
-  
-*/
-"language_english" = "English";
-
-"language_chinese_hans" = "Chinese";
-"language_chinese_hant" = "Traditional Chinese";
-
-"language_ja" = "Japanese";
+"language_english" = "영어";
+"language_chinese_hans" = "중국어";
+"language_fr" = "프랑스어";
+"language_de" = "독일어";
+"language_ja" = "일본어";
 "language_ko" = "한국어";
-"language_fr" = "French";
-"language_de" = "German";
-"language_ru" = "Russian";
+"language_ru" = "러시아어";
+"language_ar" = "아랍어";
+"language_pl" = "폴란드어";
+"language_nl" = "네덜란드어";
+"language_pt_br" = "포르투갈어(브라질)";
+"language_th" = "태국어";
+"language_tr" = "터키어";
+"language_uk" = "우크라이나어";
+"language_es" = "스페인어(스페인)";
+"language_it" = "이탈리아어";
+"language_hi" = "힌디어";
+"language_id" = "인도네시아어";
+"language_vi" = "베트남어";
+"language_english_uk" = "영어(영국)";
+"language_chinese_hant" = "중국어(대만)";
 
-
-/// 内容
-"quick_mode" = "Quick";
-"document_translation" = "Document";
-"screenshoot_translation" = "Screenshoot";
-"screenshoot_translation_action" = "Translate Screenshoot";
+"quick_mode" = "빠른";
+"document_translation" = "문서";
+"screenshoot_translation" = "스크린샷";
+"screenshoot_translation_action" = "스크린샷 번역";
+"clear" = "지우기";
+"paste" = "붙여넣기";
+"copied" = "복사됨";
+"placeholder_enter_text" = "텍스트 입력";

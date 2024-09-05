@@ -1,0 +1,31 @@
+
+"language_english" = "Inglés";
+"language_chinese_hans" = "Chino";
+"language_fr" = "Francés";
+"language_de" = "Alemán";
+"language_ja" = "Japonés";
+"language_ko" = "Coreano";
+"language_ru" = "Ruso";
+"language_ar" = "Árabe";
+"language_pl" = "Polaco";
+"language_nl" = "Neerlandés";
+"language_pt_br" = "Portugués (Brasil)";
+"language_th" = "Tailandés";
+"language_tr" = "Turco";
+"language_uk" = "Ucraniano";
+"language_es" = "Español (España)";
+"language_it" = "Italiano";
+"language_hi" = "Hindi";
+"language_id" = "Indonesio";
+"language_vi" = "Vietnamita";
+"language_english_uk" = "Inglés (Reino Unido)";
+"language_chinese_hant" = "Chino (Tradicional)";
+
+"quick_mode" = "Rápido";
+"document_translation" = "Documento";
+"screenshoot_translation" = "Traducción de captura de pantalla";
+"screenshoot_translation_action" = "Traducir captura de pantalla";
+"clear" = "Borrar";
+"paste" = "Pegar";
+"copied" = "Copiado";
+"placeholder_enter_text" = "introduce texto";

@@ -1,24 +1,31 @@
-/* 
-  Localizable.strings
-  SwiftHandlerDemo
 
-  Created by admin on 2024/8/27.
-  
-*/
-"language_english" = "English";
-
-"language_chinese_hans" = "Chinese";
-"language_chinese_hant" = "Traditional Chinese";
-
-"language_ja" = "Japanese";
-"language_ko" = "Korean";
-"language_fr" = "French";
-"language_de" = "German";
+"language_english" = "Английский";
+"language_chinese_hans" = "Китайский";
+"language_fr" = "Французский";
+"language_de" = "Немецкий";
+"language_ja" = "Японский";
+"language_ko" = "Корейский";
 "language_ru" = "Русский";
+"language_ar" = "Арабский";
+"language_pl" = "Польский";
+"language_nl" = "Нидерландский";
+"language_pt_br" = "Португальский (Бразилия)";
+"language_th" = "Тайский";
+"language_tr" = "Турецкий";
+"language_uk" = "Украинский";
+"language_es" = "Испанский (Испания)";
+"language_it" = "Итальянский";
+"language_hi" = "Хинди";
+"language_id" = "Индонезийский";
+"language_vi" = "Вьетнамский";
+"language_english_uk" = "Английский (Великобритания)";
+"language_chinese_hant" = "Китайский (Традиционный)";
 
-
-/// 内容
-"quick_mode" = "Quick";
-"document_translation" = "Document";
-"screenshoot_translation" = "Screenshoot";
-"screenshoot_translation_action" = "Translate Screenshoot";
+"quick_mode" = "Быстрый";
+"document_translation" = "Документ";
+"screenshoot_translation" = "Скриншот";
+"screenshoot_translation_action" = "Перевести скриншот";
+"clear" = "Очистить";
+"paste" = "Вставить";
+"copied" = "Скопировано";
+"placeholder_enter_text" = "введите текст";

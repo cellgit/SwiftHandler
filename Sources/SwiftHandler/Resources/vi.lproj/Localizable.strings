@@ -1,0 +1,31 @@
+
+"language_english" = "Tiếng Anh";
+"language_chinese_hans" = "Tiếng Trung (Giản thể)";
+"language_fr" = "Tiếng Pháp";
+"language_de" = "Tiếng Đức";
+"language_ja" = "Tiếng Nhật";
+"language_ko" = "Tiếng Hàn";
+"language_ru" = "Tiếng Nga";
+"language_ar" = "Tiếng Ả Rập";
+"language_pl" = "Tiếng Ba Lan";
+"language_nl" = "Tiếng Hà Lan";
+"language_pt_br" = "Tiếng Bồ Đào Nha (Brazil)";
+"language_th" = "Tiếng Thái";
+"language_tr" = "Tiếng Thổ Nhĩ Kỳ";
+"language_uk" = "Tiếng Ukraina";
+"language_es" = "Tiếng Tây Ban Nha (Tây Ban Nha)";
+"language_it" = "Tiếng Ý";
+"language_hi" = "Tiếng Hindi";
+"language_id" = "Tiếng Indonesia";
+"language_vi" = "Tiếng Việt";
+"language_english_uk" = "Tiếng Anh (Anh)";
+"language_chinese_hant" = "Tiếng Trung (Phồn thể)";
+
+"quick_mode" = "Nhanh";
+"document_translation" = "Tài liệu";
+"screenshoot_translation" = "Dịch ảnh chụp màn hình";
+"screenshoot_translation_action" = "Dịch ảnh chụp màn hình";
+"clear" = "Xóa";
+"paste" = "Dán";
+"copied" = "Đã sao chép";
+"placeholder_enter_text" = "nhập văn bản";

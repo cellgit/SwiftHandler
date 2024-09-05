@@ -1,0 +1,31 @@
+
+"language_english" = "अंग्रेज़ी";
+"language_chinese_hans" = "चीनी";
+"language_fr" = "फ़्रेंच";
+"language_de" = "जर्मन";
+"language_ja" = "जापानी";
+"language_ko" = "कोरियाई";
+"language_ru" = "रूसी";
+"language_ar" = "अरबी";
+"language_pl" = "पोलिश";
+"language_nl" = "डच";
+"language_pt_br" = "पुर्तगाली (ब्राज़ील)";
+"language_th" = "थाई";
+"language_tr" = "तुर्की";
+"language_uk" = "यूक्रेनी";
+"language_es" = "स्पैनिश (स्पेन)";
+"language_it" = "इतालवी";
+"language_hi" = "हिन्दी";
+"language_id" = "इंडोनेशियाई";
+"language_vi" = "वियतनामी";
+"language_english_uk" = "अंग्रेज़ी (यूके)";
+"language_chinese_hant" = "चीनी (परंपरागत)";
+
+"quick_mode" = "त्वरित";
+"document_translation" = "दस्तावेज़";
+"screenshoot_translation" = "स्क्रीनशॉट अनुवाद";
+"screenshoot_translation_action" = "स्क्रीनशॉट का अनुवाद करें";
+"clear" = "साफ़ करें";
+"paste" = "चिपकाएँ";
+"copied" = "कॉपी किया गया";
+"placeholder_enter_text" = "पाठ दर्ज करें";

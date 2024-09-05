@@ -1,0 +1,31 @@
+
+"language_english" = "Англійська";
+"language_chinese_hans" = "Китайська";
+"language_fr" = "Французька";
+"language_de" = "Німецька";
+"language_ja" = "Японська";
+"language_ko" = "Корейська";
+"language_ru" = "Російська";
+"language_ar" = "Арабська";
+"language_pl" = "Польська";
+"language_nl" = "Нідерландська";
+"language_pt_br" = "Португальська (Бразилія)";
+"language_th" = "Тайська";
+"language_tr" = "Турецька";
+"language_uk" = "Українська";
+"language_es" = "Іспанська (Іспанія)";
+"language_it" = "Італійська";
+"language_hi" = "Гінді";
+"language_id" = "Індонезійська";
+"language_vi" = "В'єтнамська";
+"language_english_uk" = "Англійська (Велика Британія)";
+"language_chinese_hant" = "Китайська (традиційна)";
+
+"quick_mode" = "Швидкий";
+"document_translation" = "Документ";
+"screenshoot_translation" = "Переклад знімка екрана";
+"screenshoot_translation_action" = "Перекласти знімок екрана";
+"clear" = "Очистити";
+"paste" = "Вставити";
+"copied" = "Скопійовано";
+"placeholder_enter_text" = "введіть текст";

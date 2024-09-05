@@ -1,0 +1,31 @@
+
+"language_english" = "อังกฤษ";
+"language_chinese_hans" = "จีน (ตัวย่อ)";
+"language_fr" = "ฝรั่งเศส";
+"language_de" = "เยอรมัน";
+"language_ja" = "ญี่ปุ่น";
+"language_ko" = "เกาหลี";
+"language_ru" = "รัสเซีย";
+"language_ar" = "อาหรับ";
+"language_pl" = "โปแลนด์";
+"language_nl" = "ดัตช์";
+"language_pt_br" = "โปรตุเกส (บราซิล)";
+"language_th" = "ไทย";
+"language_tr" = "ตุรกี";
+"language_uk" = "ยูเครน";
+"language_es" = "สเปน (สเปน)";
+"language_it" = "อิตาลี";
+"language_hi" = "ฮินดี";
+"language_id" = "อินโดนีเซีย";
+"language_vi" = "เวียดนาม";
+"language_english_uk" = "อังกฤษ (สหราชอาณาจักร)";
+"language_chinese_hant" = "จีน (ตัวเต็ม)";
+
+"quick_mode" = "ด่วน";
+"document_translation" = "เอกสาร";
+"screenshoot_translation" = "แปลภาพหน้าจอ";
+"screenshoot_translation_action" = "แปลภาพหน้าจอ";
+"clear" = "ล้าง";
+"paste" = "วาง";
+"copied" = "คัดลอกแล้ว";
+"placeholder_enter_text" = "ใส่ข้อความ";

@@ -1,0 +1,31 @@
+
+"language_english" = "Inggris";
+"language_chinese_hans" = "Cina";
+"language_fr" = "Perancis";
+"language_de" = "Jerman";
+"language_ja" = "Jepang";
+"language_ko" = "Korea";
+"language_ru" = "Rusia";
+"language_ar" = "Arab";
+"language_pl" = "Polandia";
+"language_nl" = "Belanda";
+"language_pt_br" = "Portugis (Brasil)";
+"language_th" = "Thailand";
+"language_tr" = "Turki";
+"language_uk" = "Ukraina";
+"language_es" = "Spanyol (Spanyol)";
+"language_it" = "Italia";
+"language_hi" = "Hindi";
+"language_id" = "Indonesia";
+"language_vi" = "Vietnam";
+"language_english_uk" = "Inggris (UK)";
+"language_chinese_hant" = "Cina (Tradisional)";
+
+"quick_mode" = "Cepat";
+"document_translation" = "Dokumen";
+"screenshoot_translation" = "Terjemahan Tangkapan Layar";
+"screenshoot_translation_action" = "Terjemahkan Tangkapan Layar";
+"clear" = "Hapus";
+"paste" = "Tempel";
+"copied" = "Disalin";
+"placeholder_enter_text" = "masukkan teks";

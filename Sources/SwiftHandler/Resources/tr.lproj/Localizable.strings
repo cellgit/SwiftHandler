@@ -1,0 +1,31 @@
+
+"language_english" = "İngilizce";
+"language_chinese_hans" = "Çince";
+"language_fr" = "Fransızca";
+"language_de" = "Almanca";
+"language_ja" = "Japonca";
+"language_ko" = "Korece";
+"language_ru" = "Rusça";
+"language_ar" = "Arapça";
+"language_pl" = "Lehçe";
+"language_nl" = "Felemenkçe";
+"language_pt_br" = "Portekizce (Brezilya)";
+"language_th" = "Tayca";
+"language_tr" = "Türkçe";
+"language_uk" = "Ukraynaca";
+"language_es" = "İspanyolca (İspanya)";
+"language_it" = "İtalyanca";
+"language_hi" = "Hintçe";
+"language_id" = "Endonezce";
+"language_vi" = "Vietnamca";
+"language_english_uk" = "İngilizce (Birleşik Krallık)";
+"language_chinese_hant" = "Çince (Geleneksel)";
+
+"quick_mode" = "Hızlı";
+"document_translation" = "Belge";
+"screenshoot_translation" = "Ekran Görüntüsü Çevirisi";
+"screenshoot_translation_action" = "Ekran Görüntüsünü Çevir";
+"clear" = "Temizle";
+"paste" = "Yapıştır";
+"copied" = "Kopyalandı";
+"placeholder_enter_text" = "Metin girin";

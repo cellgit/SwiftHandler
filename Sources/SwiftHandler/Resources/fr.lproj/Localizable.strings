@@ -1,24 +1,31 @@
-/* 
-  Localizable.strings
-  SwiftHandlerDemo
+"language_english" = "Anglais";
+"language_chinese_hans" = "Chinois";
+"language_fr" = "Français";
+"language_de" = "Allemand";
+"language_ja" = "Japonais";
+"language_ko" = "Coréen";
+"language_ru" = "Russe";
+"language_ar" = "Arabe";
+"language_pl" = "Polonais";
+"language_nl" = "Néerlandais";
+"language_pt_br" = "Portugais (Brésil)";
+"language_th" = "Thaï";
+"language_tr" = "Turc";
+"language_uk" = "Ukrainien";
+"language_es" = "Espagnol (Espagne)";
+"language_it" = "Italien";
+"language_hi" = "Hindi";
+"language_id" = "Indonésien";
+"language_vi" = "Vietnamien";
+"language_english_uk" = "Anglais (UK)";
+"language_chinese_hant" = "Chinois (TW)";
 
-  Created by admin on 2024/8/27.
-  
-*/
-"language_english" = "English";
-
-"language_chinese_hans" = "Chinese";
-"language_chinese_hant" = "Traditional Chinese";
-
-"language_ja" = "Japanese";
-"language_ko" = "Korean";
-"language_fr" = "French";
-"language_de" = "German";
-"language_ru" = "Russian";
-
-
-/// 内容
-"quick_mode" = "Quick";
+"quick_mode" = "Rapide";
 "document_translation" = "Document";
-"screenshoot_translation" = "Screenshoot";
-"screenshoot_translation_action" = "Translate Screenshoot";
+"screenshoot_translation" = "Capture d'écran";
+"screenshoot_translation_action" = "Traduire la capture d'écran";
+"clear" = "Effacer";
+"paste" = "Coller";
+"copied" = "Copié";
+"placeholder_enter_text" = "entrer du texte";
+
