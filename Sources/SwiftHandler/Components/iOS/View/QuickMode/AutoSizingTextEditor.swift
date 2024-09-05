@@ -28,7 +28,7 @@ public struct AutoSizingTextEditor: View {
             .scrollContentBackground(.hidden)
             .opacity(text.isEmpty ? 0.5 : 1)
             .padding(6)
-            .frame(minHeight: 40, maxHeight: 280)
+            .frame(minHeight: 52, maxHeight: 280)
             .fixedSize(horizontal: false, vertical: true)
             .background(
                 RoundedRectangle(cornerRadius: 10) // 设置圆角背景
@@ -42,7 +42,9 @@ public struct AutoSizingTextEditor: View {
                         adjustTextViewHeight(geometry: geometry)
                     }
                     .onChange(of: text) { oldValue, newValue in
-                        adjustTextViewHeight(geometry: geometry)
+                        withAnimation(.smooth(duration: 0.1)) {
+                            adjustTextViewHeight(geometry: geometry)
+                        }
                     }
             })
             .overlay(alignment: .leading) {
