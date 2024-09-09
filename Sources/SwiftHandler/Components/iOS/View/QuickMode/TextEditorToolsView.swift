@@ -64,6 +64,17 @@ public struct TextEditorToolsView: View {
                 }
             }
             
+            Button {
+                debugPrint("添加到历史记录")
+            } label: {
+                HStack(spacing: 4) {
+                    Image(systemName: "arrow.right")
+                }
+                .padding(8)
+                .background(Color("bg_blue"))
+                .cornerRadius(30)
+            }
+            
             Spacer()
             
             if !isSourceTextEmpty {
@@ -84,14 +95,14 @@ public struct TextEditorToolsView: View {
                         .symbolRenderingMode(isCopied ? .multicolor : .monochrome)
                 })
                 
-//                Button {
-//                    isStar = !isStar
-//                } label: {
-//                    HStack(spacing: 4) {
-//                        Image(systemName: "star")
-//                            .symbolRenderingMode(isStar ? .multicolor : .monochrome)
-//                    }
-//                }
+                Button {
+                    isStar = !isStar
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "star")
+                            .symbolRenderingMode(isStar ? .multicolor : .monochrome)
+                    }
+                }
             }
         }
         .foregroundColor(Color(.label))

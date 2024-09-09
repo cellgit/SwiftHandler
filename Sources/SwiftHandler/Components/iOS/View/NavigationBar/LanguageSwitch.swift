@@ -27,13 +27,16 @@ public struct LanguageSwitch: View {
     
     @State private var settingsDetent = PresentationDetent.height(500)
     
+    /// 外部的回调，用于通知新会话的开启
+    var onNewSession: (String) -> Void
     
-    public init(source: Binding<LanguageManager>, target: Binding<LanguageManager>, showSourceLanguageView: Bool = false, showTargetLanguageView: Bool = false, settingsDetent: SwiftUI.PresentationDetent = PresentationDetent.height(500)) {
+    public init(source: Binding<LanguageManager>, target: Binding<LanguageManager>, showSourceLanguageView: Bool = false, showTargetLanguageView: Bool = false, settingsDetent: SwiftUI.PresentationDetent = PresentationDetent.height(500), onNewSession: @escaping (String) -> Void) {
         self._source = source
         self._target = target
         self.showSourceLanguageView = showSourceLanguageView
         self.showTargetLanguageView = showTargetLanguageView
         self.settingsDetent = settingsDetent
+        self.onNewSession = onNewSession
     }
     
     private let languages = LanguageManager.allCases
@@ -112,6 +115,23 @@ public struct LanguageSwitch: View {
             .onChange(of: target) { oldValue, newValue in
                 CacheManager.shared.saveTargetLanguage(with: newValue.identifier)
             }
+            .overlay(alignment: .trailing) {
+                // 互换语言
+                Button {
+                    debugPrint("开启新会话,这里做一个回调")
+                    let sessionId = UUID().uuidString
+                    onNewSession(sessionId)
+                } label: {
+                    Image(systemName: "pencil.line")
+                        .font(Font.system(size: 16, weight: .medium,  design: .monospaced))
+                        .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+//                        .background(Color("bg"))
+                        .cornerRadius(16)
+                }
+                .foregroundColor(.primary)
+                .frame(width: 32, height: 32, alignment: .center)
+                .padding(.trailing)
+            }
         }
         
         
@@ -119,7 +139,9 @@ public struct LanguageSwitch: View {
 }
 
 #Preview {
-    LanguageSwitch(source: .constant(.zh_Hans), target: .constant(.en_US))
+    LanguageSwitch(source: .constant(.zh_Hans), target: .constant(.en_US)) { sessionId in
+        debugPrint("sessionId ====== \(sessionId)")
+    }
 }
 
 #endif
