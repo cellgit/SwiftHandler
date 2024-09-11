@@ -27,16 +27,24 @@ public struct LanguageSwitch: View {
     
     @State private var settingsDetent = PresentationDetent.height(500)
     
-    /// 外部的回调，用于通知新会话的开启
-    var onNewSession: (String) -> Void
+//    /// 外部的回调，用于通知新会话的开启
+//    var onNewSession: (String) -> Void
+//    
+//    var onHistory: (String) -> Void
     
-    public init(source: Binding<LanguageManager>, target: Binding<LanguageManager>, showSourceLanguageView: Bool = false, showTargetLanguageView: Bool = false, settingsDetent: SwiftUI.PresentationDetent = PresentationDetent.height(500), onNewSession: @escaping (String) -> Void) {
+    var onAction: (ActionType) -> Void
+    
+    public enum ActionType {
+        case newSession(String)
+    }
+    
+    public init(source: Binding<LanguageManager>, target: Binding<LanguageManager>, showSourceLanguageView: Bool = false, showTargetLanguageView: Bool = false, settingsDetent: SwiftUI.PresentationDetent = PresentationDetent.height(500), onAction: @escaping (LanguageSwitch.ActionType) -> Void) {
         self._source = source
         self._target = target
         self.showSourceLanguageView = showSourceLanguageView
         self.showTargetLanguageView = showTargetLanguageView
         self.settingsDetent = settingsDetent
-        self.onNewSession = onNewSession
+        self.onAction = onAction
     }
     
     private let languages = LanguageManager.allCases
@@ -116,21 +124,43 @@ public struct LanguageSwitch: View {
                 CacheManager.shared.saveTargetLanguage(with: newValue.identifier)
             }
             .overlay(alignment: .trailing) {
-                // 互换语言
-                Button {
-                    debugPrint("开启新会话,这里做一个回调")
-                    let sessionId = UUID().uuidString
-                    onNewSession(sessionId)
-                } label: {
-                    Image(systemName: "pencil.line")
-                        .font(Font.system(size: 16, weight: .medium,  design: .monospaced))
-                        .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
-//                        .background(Color("bg"))
-                        .cornerRadius(16)
+                
+                
+                HStack {
+                    // 互换语言
+                    NavigationLink(value: "history") {
+                        Image(systemName: "clock")
+                            .font(Font.system(size: 16, weight: .medium,  design: .monospaced))
+                            .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+                        //                        .background(Color("bg"))
+                            .cornerRadius(16)
+                    }
+                    .foregroundColor(.primary)
+                    .padding(.leading)
+                    
+                    Spacer()
+                    
+                    // 互换语言
+                    Button {
+                        debugPrint("开启新会话,这里做一个回调")
+                        let sessionId = UUID().uuidString
+    //                    onNewSession(sessionId)
+                        
+                        onAction(.newSession(sessionId))
+                        
+                    } label: {
+                        Image(systemName: "pencil.line")
+                            .font(Font.system(size: 16, weight: .medium,  design: .monospaced))
+                            .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+    //                        .background(Color("bg"))
+                            .cornerRadius(16)
+                    }
+                    .foregroundColor(.primary)
+                    .frame(width: 32, height: 32, alignment: .center)
+                    .padding(.trailing)
                 }
-                .foregroundColor(.primary)
-                .frame(width: 32, height: 32, alignment: .center)
-                .padding(.trailing)
+                
+                
             }
         }
         
