@@ -20,8 +20,8 @@
 import SwiftUI
 
 /// 修复侧滑手势
-public extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
-    override public func viewDidLoad() {
+extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self
     }
