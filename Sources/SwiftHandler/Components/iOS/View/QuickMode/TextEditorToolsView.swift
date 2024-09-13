@@ -64,16 +64,16 @@ public struct TextEditorToolsView: View {
                 }
             }
             
-            Button {
-                debugPrint("添加到历史记录")
-            } label: {
-                HStack(spacing: 4) {
-                    Image(systemName: "arrow.right")
-                }
-                .padding(8)
-                .background(Color("bg_blue"))
-                .cornerRadius(30)
-            }
+//            Button {
+//                debugPrint("添加到历史记录")
+//            } label: {
+//                HStack(spacing: 4) {
+//                    Image(systemName: "arrow.right")
+//                }
+//                .padding(8)
+//                .background(Color("bg_blue"))
+//                .cornerRadius(30)
+//            }
             
             Spacer()
             
