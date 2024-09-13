@@ -18,15 +18,22 @@ public struct TextEditorToolsView: View {
     
     @State var isSourceTextEmpty: Bool = true
     
-    @State var isStar: Bool = false
+    @Binding var isStar: Bool
     
     @State var isCopied: Bool = false
     
-    public init(text: Binding<String>, targetText: Binding<String>, isSourceTextEmpty: Bool = true, isStar: Bool = false) {
+    var onAction: (TextEditorToolsView.ActionType) -> Void
+    
+    public enum ActionType {
+        case onStar(Bool)
+    }
+    
+    public init(text: Binding<String>, targetText: Binding<String>, isSourceTextEmpty: Bool = true, isStar: Binding<Bool>, onAction: @escaping (TextEditorToolsView.ActionType) -> Void) {
         self._text = text
         self._targetText = targetText
+        self._isStar = isStar
         self.isSourceTextEmpty = isSourceTextEmpty
-        self.isStar = isStar
+        self.onAction = onAction
     }
     
     public var body: some View {
@@ -96,20 +103,23 @@ public struct TextEditorToolsView: View {
                 })
                 
                 Button {
-                    isStar = !isStar
+                    withAnimation(.easeInOut(duration: 0.1)) {
+                        isStar.toggle()
+                        onAction(.onStar(isStar))
+                    }
                 } label: {
                     HStack(spacing: 4) {
+//                        Image(systemName: isStar ? "star.fill" : "star")
+//                            .symbolRenderingMode(isStar ? .multicolor : .monochrome)
                         Image(systemName: "star")
                             .symbolRenderingMode(isStar ? .multicolor : .monochrome)
                     }
                 }
+                
             }
         }
         .foregroundColor(Color(.label))
         .onChange(of: text) { oldValue, newValue in
-            if oldValue != newValue {
-                isStar = false
-            }
             withAnimation(.smooth(duration: 0.1)) {
                 isSourceTextEmpty = newValue.isEmpty
             }
@@ -125,7 +135,9 @@ public struct TextEditorToolsView: View {
 }
 
 #Preview {
-    TextEditorToolsView(text: .constant("这是输入的文字"), targetText: .constant("译文内容"))
+    TextEditorToolsView(text: .constant("这是输入的文字"), targetText: .constant("译文内容"), isStar: .constant(false)) { type in
+        
+    }
 }
 
 #endif
