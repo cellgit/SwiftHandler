@@ -60,8 +60,8 @@ public struct GradientBackground: ViewModifier {
     public static let gradient2_1: Color = Color(red: 208/255, green: 239/255, blue: 248/255, opacity: 1.0)
     
     public init(
-        radialColors: [Color] = [gradient1_0, gradient1_1],
-        linearColors: [Color] = [gradient2_0, gradient2_1],
+        radialColors: [Color] = [GradientBackground.gradient1_0, GradientBackground.gradient1_1],
+        linearColors: [Color] = [GradientBackground.gradient2_0, GradientBackground.gradient2_1],
         radialCenter: UnitPoint = .trailing,
         radialStartRadius: CGFloat = 5,
         radialEndRadius: CGFloat = 1000,
@@ -142,8 +142,8 @@ public extension View {
     ///     )
     /// ```
     func gradientBackground(
-        radialColors: [Color] = GradientBackground.gradient1_0,
-        linearColors: [Color] = GradientBackground.gradient2_0,
+        radialColors: [Color] = [GradientBackground.gradient1_0, GradientBackground.gradient1_1],
+        linearColors: [Color] = [GradientBackground.gradient2_0, GradientBackground.gradient2_1],
         radialCenter: UnitPoint = .trailing,
         radialStartRadius: CGFloat = 5,
         radialEndRadius: CGFloat = 1000,
