@@ -190,5 +190,10 @@ public enum LanguageManager: String, CaseIterable {
         return LanguageManager.languages().first { $0.identifier == identifier }?.name ?? ""
     }
     
+    /// 根据 `identifier` 获取本地化语言
+    public static func findLanguage(with identifier: String ) -> LanguageManager {
+        return LanguageManager.languages().first { $0.identifier == identifier } ?? .en_US
+    }
+    
 }
 
