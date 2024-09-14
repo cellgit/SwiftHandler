@@ -185,8 +185,10 @@ public enum LanguageManager: String, CaseIterable {
         return self.allCases
     }
     
-    
-    
+    /// 根据 `identifier` 获取本地化语言名字
+    func findName(with identifier: String ) -> String {
+        return LanguageManager.languages().first { $0.identifier == identifier }?.name ?? ""
+    }
     
 }
 
