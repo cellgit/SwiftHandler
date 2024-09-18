@@ -29,3 +29,9 @@
 "paste" = "วาง";
 "copied" = "คัดลอกแล้ว";
 "placeholder_enter_text" = "ใส่ข้อความ";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

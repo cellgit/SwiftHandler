@@ -1,4 +1,6 @@
 
+// 俄语
+
 "language_english" = "Английский";
 "language_chinese_hans" = "Китайский";
 "language_fr" = "Французский";
@@ -29,3 +31,9 @@
 "paste" = "Вставить";
 "copied" = "Скопировано";
 "placeholder_enter_text" = "введите текст";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

@@ -1,4 +1,6 @@
 
+// 印尼语
+
 "language_english" = "Inggris";
 "language_chinese_hans" = "Cina";
 "language_fr" = "Perancis";
@@ -29,3 +31,9 @@
 "paste" = "Tempel";
 "copied" = "Disalin";
 "placeholder_enter_text" = "masukkan teks";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

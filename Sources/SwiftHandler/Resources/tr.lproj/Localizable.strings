@@ -1,4 +1,6 @@
 
+// 土耳其语
+
 "language_english" = "İngilizce";
 "language_chinese_hans" = "Çince";
 "language_fr" = "Fransızca";
@@ -29,3 +31,9 @@
 "paste" = "Yapıştır";
 "copied" = "Kopyalandı";
 "placeholder_enter_text" = "Metin girin";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

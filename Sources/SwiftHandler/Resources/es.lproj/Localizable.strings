@@ -1,4 +1,6 @@
 
+// 西班牙
+
 "language_english" = "Inglés";
 "language_chinese_hans" = "Chino";
 "language_fr" = "Francés";
@@ -29,3 +31,9 @@
 "paste" = "Pegar";
 "copied" = "Copiado";
 "placeholder_enter_text" = "introduce texto";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

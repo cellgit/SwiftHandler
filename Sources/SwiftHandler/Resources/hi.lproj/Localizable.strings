@@ -1,4 +1,6 @@
 
+// 印地语
+
 "language_english" = "अंग्रेज़ी";
 "language_chinese_hans" = "चीनी";
 "language_fr" = "फ़्रेंच";
@@ -29,3 +31,9 @@
 "paste" = "चिपकाएँ";
 "copied" = "कॉपी किया गया";
 "placeholder_enter_text" = "पाठ दर्ज करें";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

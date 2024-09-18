@@ -1,4 +1,6 @@
 
+// 简体中文
+
 "language_english" = "英语";
 "language_english_gb" = "英语(英国)";
 "language_chinese_hans" = "简体中文";
@@ -29,3 +31,9 @@
 "paste" = "粘贴";
 "copied" = "已复制";
 "placeholder_enter_text" = "输入文字";
+
+"records" = "历史记录";
+"favorites" = "我的收藏";
+"detail" = "详情";
+"edit_history" = "编辑历史";
+"edit" = "编辑";

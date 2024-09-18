@@ -1,4 +1,6 @@
 
+// 繁体中文
+
 "language_english" = "英語";
 "language_chinese_hans" = "中文(簡體)";
 "language_fr" = "法語";
@@ -29,3 +31,9 @@
 "paste" = "貼上";
 "copied" = "已複製";
 "placeholder_enter_text" = "輸入文字";
+
+"records" = "歷史記錄";
+"favorites" = "我的收藏";
+"detail" = "詳細";
+"edit_history" = "編輯歷史";
+"edit" = "編輯";

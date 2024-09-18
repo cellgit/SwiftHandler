@@ -1,4 +1,6 @@
 
+// 意大利语
+
 "language_english" = "Inglese";
 "language_chinese_hans" = "Cinese";
 "language_fr" = "Francese";
@@ -29,3 +31,9 @@
 "paste" = "Incolla";
 "copied" = "Copiato";
 "placeholder_enter_text" = "inserisci testo";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

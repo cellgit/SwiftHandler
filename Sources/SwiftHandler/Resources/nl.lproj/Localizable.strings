@@ -1,4 +1,6 @@
 
+// 荷兰语
+
 "language_english" = "Engels";
 "language_chinese_hans" = "Chinees";
 "language_fr" = "Frans";
@@ -29,3 +31,9 @@
 "paste" = "Plakken";
 "copied" = "Gekopieerd";
 "placeholder_enter_text" = "Voer tekst in";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

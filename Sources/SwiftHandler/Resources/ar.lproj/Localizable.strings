@@ -1,4 +1,6 @@
 
+// 阿拉伯
+
 "language_english" = "الإنجليزية";
 "language_chinese_hans" = "الصينية";
 "language_fr" = "الفرنسية";
@@ -29,3 +31,9 @@
 "paste" = "لصق";
 "copied" = "تم النسخ";
 "placeholder_enter_text" = "أدخل النص";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

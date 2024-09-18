@@ -1,33 +1,5 @@
-/* 
-  Localizable.strings
-  SwiftHandlerDemo
 
-  Created by admin on 2024/8/27.
-  
-*/
-//"language_english" = "English";
-//
-//"language_chinese_hans" = "Chinese";
-//"language_chinese_hant" = "Traditional Chinese";
-//
-//"language_ja" = "Japanese";
-//"language_ko" = "Korean";
-//"language_fr" = "French";
-//"language_de" = "German";
-//"language_ru" = "Russian";
-//
-//
-///// 内容
-//"quick_mode" = "Quick";
-//"document_translation" = "Document";
-//"screenshoot_translation" = "Screenshoot";
-//"screenshoot_translation_action" = "Translate Screenshoot";
-//
-//"clear" = "Clear";
-//"paste" = "Paste";
-//"copied" = "Copied";
-//"placeholder_enter_text" = "enter text";
-
+// 英语(英国)
 
 
 "language_english" = "English";
@@ -60,3 +32,9 @@
 "paste" = "Paste";
 "copied" = "Copied";
 "placeholder_enter_text" = "enter text";
+
+"records" = "Records";
+"favorites" = "Favourites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

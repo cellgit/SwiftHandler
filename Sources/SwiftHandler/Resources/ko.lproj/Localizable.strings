@@ -1,4 +1,6 @@
 
+// 韩语
+
 "language_english" = "영어";
 "language_chinese_hans" = "중국어";
 "language_fr" = "프랑스어";
@@ -29,3 +31,9 @@
 "paste" = "붙여넣기";
 "copied" = "복사됨";
 "placeholder_enter_text" = "텍스트 입력";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

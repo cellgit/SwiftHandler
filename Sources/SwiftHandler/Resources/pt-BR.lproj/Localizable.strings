@@ -1,4 +1,6 @@
 
+// 巴西葡萄牙语
+
 "language_english" = "Inglês";
 "language_chinese_hans" = "Chinês";
 "language_fr" = "Francês";
@@ -29,3 +31,9 @@
 "paste" = "Colar";
 "copied" = "Copiado";
 "placeholder_enter_text" = "Insira o texto";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

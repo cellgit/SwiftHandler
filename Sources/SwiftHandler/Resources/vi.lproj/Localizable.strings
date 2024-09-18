@@ -1,4 +1,6 @@
 
+// 越南语
+
 "language_english" = "Tiếng Anh";
 "language_chinese_hans" = "Tiếng Trung (Giản thể)";
 "language_fr" = "Tiếng Pháp";
@@ -29,3 +31,9 @@
 "paste" = "Dán";
 "copied" = "Đã sao chép";
 "placeholder_enter_text" = "nhập văn bản";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

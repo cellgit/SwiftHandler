@@ -1,4 +1,6 @@
 
+// 波兰语
+
 "language_english" = "Angielski";
 "language_chinese_hans" = "Chiński";
 "language_fr" = "Francuski";
@@ -29,3 +31,9 @@
 "paste" = "Wklej";
 "copied" = "Skopiowano";
 "placeholder_enter_text" = "Wprowadź tekst";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

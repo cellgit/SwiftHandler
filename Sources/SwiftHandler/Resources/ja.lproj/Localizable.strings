@@ -1,4 +1,7 @@
 
+
+// 日语
+
 "language_english" = "英語";
 "language_chinese_hans" = "中国語";
 "language_fr" = "フランス語";
@@ -29,3 +32,9 @@
 "paste" = "貼り付け";
 "copied" = "コピーしました";
 "placeholder_enter_text" = "テキストを入力";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";

@@ -1,4 +1,6 @@
 
+// 德语
+
 "language_english" = "Englisch";
 "language_chinese_hans" = "Chinesisch";
 "language_fr" = "Französisch";
@@ -29,3 +31,9 @@
 "paste" = "Einfügen";
 "copied" = "Kopiert";
 "placeholder_enter_text" = "Text eingeben";
+
+"records" = "Records";
+"favorites" = "Favorites";
+"detail" = "Detail";
+"edit_history" = "Edit History";
+"edit" = "Edit";
