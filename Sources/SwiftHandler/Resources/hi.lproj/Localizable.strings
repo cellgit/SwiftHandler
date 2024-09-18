@@ -32,8 +32,8 @@
 "copied" = "कॉपी किया गया";
 "placeholder_enter_text" = "पाठ दर्ज करें";
 
-"records" = "Records";
-"favorites" = "Favorites";
-"detail" = "Detail";
-"edit_history" = "Edit History";
-"edit" = "Edit";
+"records" = "रिकॉर्ड्स";
+"favorites" = "पसंदीदा";
+"detail" = "विवरण";
+"edit_history" = "इतिहास संपादित करें";
+"edit" = "संपादित करें";

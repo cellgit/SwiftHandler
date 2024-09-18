@@ -32,8 +32,8 @@
 "copied" = "تم النسخ";
 "placeholder_enter_text" = "أدخل النص";
 
-"records" = "Records";
-"favorites" = "Favorites";
-"detail" = "Detail";
-"edit_history" = "Edit History";
-"edit" = "Edit";
+"records" = "السجلات";
+"favorites" = "المفضلات";
+"detail" = "تفصيل";
+"edit_history" = "تحرير السجل";
+"edit" = "تحرير";

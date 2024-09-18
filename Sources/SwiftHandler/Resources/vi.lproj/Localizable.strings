@@ -32,8 +32,8 @@
 "copied" = "Đã sao chép";
 "placeholder_enter_text" = "nhập văn bản";
 
-"records" = "Records";
-"favorites" = "Favorites";
-"detail" = "Detail";
-"edit_history" = "Edit History";
-"edit" = "Edit";
+"records" = "Bản ghi";
+"favorites" = "Mục yêu thích";
+"detail" = "Chi tiết";
+"edit_history" = "Chỉnh sửa lịch sử";
+"edit" = "Chỉnh sửa";

@@ -32,8 +32,8 @@
 "copied" = "Скопійовано";
 "placeholder_enter_text" = "введіть текст";
 
-"records" = "Records";
-"favorites" = "Favorites";
-"detail" = "Detail";
-"edit_history" = "Edit History";
-"edit" = "Edit";
+"records" = "Записи";
+"favorites" = "Вибране";
+"detail" = "Деталь";
+"edit_history" = "Редагувати історію";
+"edit" = "Редагувати";

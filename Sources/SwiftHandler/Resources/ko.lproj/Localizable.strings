@@ -32,8 +32,8 @@
 "copied" = "복사됨";
 "placeholder_enter_text" = "텍스트 입력";
 
-"records" = "Records";
-"favorites" = "Favorites";
-"detail" = "Detail";
-"edit_history" = "Edit History";
-"edit" = "Edit";
+"records" = "기록";
+"favorites" = "즐겨찾기";
+"detail" = "세부";
+"edit_history" = "기록 편집";
+"edit" = "편집";

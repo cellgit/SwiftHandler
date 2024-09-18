@@ -1,4 +1,6 @@
 
+// 泰语
+
 "language_english" = "อังกฤษ";
 "language_chinese_hans" = "จีน (ตัวย่อ)";
 "language_fr" = "ฝรั่งเศส";
@@ -30,8 +32,8 @@
 "copied" = "คัดลอกแล้ว";
 "placeholder_enter_text" = "ใส่ข้อความ";
 
-"records" = "Records";
-"favorites" = "Favorites";
-"detail" = "Detail";
-"edit_history" = "Edit History";
-"edit" = "Edit";
+"records" = "บันทึก";
+"favorites" = "รายการโปรด";
+"detail" = "รายละเอียด";
+"edit_history" = "แก้ไขประวัติ";
+"edit" = "แก้ไข";

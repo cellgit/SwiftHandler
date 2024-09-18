@@ -32,8 +32,8 @@
 "copied" = "Kopyalandı";
 "placeholder_enter_text" = "Metin girin";
 
-"records" = "Records";
-"favorites" = "Favorites";
-"detail" = "Detail";
-"edit_history" = "Edit History";
-"edit" = "Edit";
+"records" = "Kayıtlar";
+"favorites" = "Favoriler";
+"detail" = "Detay";
+"edit_history" = "Geçmişi düzenle";
+"edit" = "Düzenle";

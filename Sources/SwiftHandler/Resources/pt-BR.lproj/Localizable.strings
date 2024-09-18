@@ -32,8 +32,8 @@
 "copied" = "Copiado";
 "placeholder_enter_text" = "Insira o texto";
 
-"records" = "Records";
-"favorites" = "Favorites";
-"detail" = "Detail";
-"edit_history" = "Edit History";
-"edit" = "Edit";
+"records" = "Registros";
+"favorites" = "Favoritos";
+"detail" = "Detalhe";
+"edit_history" = "Editar histórico";
+"edit" = "Editar";

@@ -33,8 +33,8 @@
 "copied" = "コピーしました";
 "placeholder_enter_text" = "テキストを入力";
 
-"records" = "Records";
-"favorites" = "Favorites";
-"detail" = "Detail";
-"edit_history" = "Edit History";
-"edit" = "Edit";
+"records" = "履歴";
+"favorites" = "お気に入り";
+"detail" = "編集";
+"edit_history" = "編集履歴";
+"edit" = "編集";
