@@ -39,6 +39,12 @@ public enum LocalStrings: String {
     case paste
     case copied
     case placeholder_enter_text
+    
+    case records
+    case favorites
+    case detail
+    case edit_history
+    case edit
 
     /// 本地化显示的text
     public var text: String {
