@@ -107,13 +107,13 @@ public struct LanguageSwitch: View {
             .frame(width: UIScreen.main.bounds.size.width, height: 44)
             .sheet(isPresented: $showSourceLanguageView) {
                 LanguagePickerView(selectedLanguage: $source, languages: languages)
-                    .presentationDetents([.fraction(0.5), .fraction(0.9)])
+                    .presentationDetents([.fraction(0.5), .fraction(0.85)])
                     .presentationDragIndicator(.hidden)
                     .presentationCornerRadius(32)
             }
             .sheet(isPresented: $showTargetLanguageView) {
                 LanguagePickerView(selectedLanguage: $target, languages: languages)
-                    .presentationDetents([.fraction(0.5), .fraction(0.9)])
+                    .presentationDetents([.fraction(0.5), .fraction(0.85)])
                     .presentationDragIndicator(.hidden)
                     .presentationCornerRadius(32)
             }
@@ -132,7 +132,6 @@ public struct LanguageSwitch: View {
                         Image(systemName: "clock")
                             .font(Font.system(size: 16, weight: .medium,  design: .monospaced))
                             .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
-                        //                        .background(Color("bg"))
                             .cornerRadius(16)
                     }
                     .foregroundColor(.primary)

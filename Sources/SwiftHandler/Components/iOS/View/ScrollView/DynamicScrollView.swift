@@ -48,12 +48,10 @@ public struct DynamicScrollView<Content>: View where Content: View {
                 maxWidth: .infinity,
                 maxHeight: calculateHeight(availableHeight: geometry.size.height)
             )
-            .onPreferenceChange(ViewHeightKey.self) { contentHeight in
-                let newHeight = adjustScrollViewHeight(contentHeight: contentHeight, availableHeight: geometry.size.height)
-                
-                debugPrint("newHeight ===== \(newHeight)")
-                
-            }
+//            .onPreferenceChange(ViewHeightKey.self) { contentHeight in
+//                let newHeight = adjustScrollViewHeight(contentHeight: contentHeight, availableHeight: geometry.size.height)
+//                debugPrint("newHeight ===== \(newHeight)")
+//            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

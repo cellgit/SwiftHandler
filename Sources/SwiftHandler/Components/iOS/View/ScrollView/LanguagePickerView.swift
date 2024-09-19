@@ -23,25 +23,28 @@ public struct LanguagePickerView: View {
     public var body: some View {
         
         DynamicScrollView {
-            LazyVStack(alignment: .center, spacing: 16) {
+            LazyVStack(alignment: .center, spacing: 1) {
                 ForEach(languages, id: \.self) { language in
                     LazyHStack {
                         Button(action: {
                             selectedLanguage = language
-                            debugPrint("selectedLanguage is \(selectedLanguage)")
                         }) {
                             HStack {
+                                Spacer()
                                 Text(language.name)
+                                    .font(.system(size: 16, weight: .medium, design: .monospaced))
                                 if language == selectedLanguage {
                                     Image(systemName: "checkmark")
                                 }
+                                Spacer()
                             }
                         }
+                        .frame(width: UIScreen.main.bounds.width, height: 44) // 让按钮占满整个屏幕宽度
                         .foregroundColor(Color.primary)
                     }
                 }
             }
-            .padding()
+            .padding(20)
         }
         .gradientTheme1
     }
