@@ -28,10 +28,11 @@ public struct AutoSizingTextEditor: View {
         if text.wrappedValue.isEmpty {
             // 如果文本为空，设置为默认高度 52
             self._textViewHeight = .constant(52)
-        } else {
+        }
+        else {
             // 如果文本不为空，计算实际的文本高度
             let calculatedHeight = calculateTextViewHeight(for: text.wrappedValue)
-            self._textViewHeight = .constant(calculatedHeight)
+            self.textViewHeight = calculatedHeight
         }
     }
     
@@ -42,6 +43,7 @@ public struct AutoSizingTextEditor: View {
             .scrollContentBackground(.hidden)
             .opacity(text.isEmpty ? 0.5 : 1)
             .padding(6)
+//            .frame(minHeight: 52, maxHeight: maxHeight)
             .frame(minHeight: textViewHeight<maxHeight ? textViewHeight : maxHeight, maxHeight: maxHeight)
             .fixedSize(horizontal: false, vertical: true)
             .background(
@@ -77,7 +79,6 @@ public struct AutoSizingTextEditor: View {
                 let newHeight = geometry.size.height
                 if newHeight != textViewHeight {
                     textViewHeight = newHeight
-                    debugPrint("newHeight ====== \(newHeight)")
                 }
             }
         }
