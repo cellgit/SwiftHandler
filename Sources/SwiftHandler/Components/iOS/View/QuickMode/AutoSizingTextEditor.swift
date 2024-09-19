@@ -15,6 +15,8 @@ public struct AutoSizingTextEditor: View {
     @Binding var text: String
     @Binding var textViewHeight: CGFloat
     
+    private let maxHeight: CGFloat = 280
+    
     var placeholder: String
     
     public init(text: Binding<String>, textViewHeight: Binding<CGFloat>, placeholder: String) {
@@ -40,7 +42,7 @@ public struct AutoSizingTextEditor: View {
             .scrollContentBackground(.hidden)
             .opacity(text.isEmpty ? 0.5 : 1)
             .padding(6)
-            .frame(minHeight: textViewHeight, maxHeight: 280)
+            .frame(minHeight: textViewHeight<maxHeight ? textViewHeight : maxHeight, maxHeight: maxHeight)
             .fixedSize(horizontal: false, vertical: true)
             .background(
                 RoundedRectangle(cornerRadius: 10) // 设置圆角背景
@@ -89,7 +91,8 @@ public struct AutoSizingTextEditor: View {
         // 32 是margin两边边距各16,12是editor padding,两边各6
         let size = textView.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 32 - 12, height: CGFloat.greatestFiniteMagnitude))
         // 12 是editor上下padding各6
-        return max(size.height+12, 52) // 最小高度为52
+        let maxHeight = (size.height+12) < maxHeight ? (size.height+12) : maxHeight
+        return max(maxHeight, 52) // 最小高度为52
     }
 }
 
