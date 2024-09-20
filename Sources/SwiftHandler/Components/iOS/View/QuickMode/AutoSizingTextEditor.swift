@@ -16,10 +16,14 @@ public struct AutoSizingTextEditor: View {
     
     var placeholder: String
     
-    public init(text: Binding<String>, textViewHeight: Binding<CGFloat>, placeholder: String) {
+    // 初始更新高度
+    @Binding var isInitUpdateHeight: Bool
+    
+    public init(text: Binding<String>, textViewHeight: Binding<CGFloat>, placeholder: String, isInitUpdateHeight: Binding<Bool>) {
         self._text = text
         self._textViewHeight = textViewHeight
         self.placeholder = placeholder
+        self._isInitUpdateHeight = isInitUpdateHeight
     }
     
     public var body: some View {
@@ -40,6 +44,10 @@ public struct AutoSizingTextEditor: View {
                 Color.clear
                     .onAppear {
                         adjustTextViewHeight(geometry: geometry)
+                        // 保证显示后,如果初始有文字,要更新Editor高度
+                        if isInitUpdateHeight {
+                            self.text = ""
+                        }
                     }
                     .onChange(of: text) { oldValue, newValue in
                         withAnimation(.smooth(duration: 0.1)) {

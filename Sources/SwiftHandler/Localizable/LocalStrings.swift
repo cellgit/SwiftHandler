@@ -78,7 +78,7 @@ public enum LocalStrings: String {
 
 extension String {
     var localized: String {
-        debugPrint("localized ==== \(self)")
+//        debugPrint("localized ==== \(self)")
         return NSLocalizedString(self, bundle: .module, comment: self)
     }
 }
