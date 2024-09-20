@@ -37,7 +37,7 @@ extension CacheManager {
 extension CacheManager {
     /// 获取源语言
     func getSourceLanguage() -> String {
-        UserDefaultsManager.get(forKey: UserDefaultsKey.sourceLanguage.value, ofType: String.self) ?? "en"
+        UserDefaultsManager.get(forKey: UserDefaultsKey.sourceLanguage.value, ofType: String.self) ?? "en-US"
     }
     
     /// 获取目标语言

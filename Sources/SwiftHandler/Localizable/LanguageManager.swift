@@ -60,8 +60,8 @@ public enum LanguageManager: String, CaseIterable {
     public var identifier: String {
         switch self {
         case .en_US:
-            return "en"
-//            return "en-US"
+//            return "en"
+            return "en-US"
         case .zh_Hans:
             return "zh-Hans"
         case .ja:
