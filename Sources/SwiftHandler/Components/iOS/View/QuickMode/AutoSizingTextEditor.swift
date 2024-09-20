@@ -19,6 +19,8 @@ public struct AutoSizingTextEditor: View {
     // 初始更新高度
     @Binding var isInitUpdateHeight: Bool
     
+    private let maxHeight: CGFloat = isPad ? 280 : 230
+    
     public init(text: Binding<String>, textViewHeight: Binding<CGFloat>, placeholder: String, isInitUpdateHeight: Binding<Bool>) {
         self._text = text
         self._textViewHeight = textViewHeight
@@ -32,7 +34,7 @@ public struct AutoSizingTextEditor: View {
             .scrollContentBackground(.hidden)
             .opacity(text.isEmpty ? 0.5 : 1)
             .padding(6)
-            .frame(minHeight: 52, maxHeight: 280)
+            .frame(minHeight: 52, maxHeight: maxHeight)
             .fixedSize(horizontal: false, vertical: true)
             .background(
                 RoundedRectangle(cornerRadius: 10) // 设置圆角背景
