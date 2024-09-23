@@ -26,6 +26,7 @@ public struct TextEditorToolsView: View {
     
     public enum ActionType {
         case onStar(Bool)
+        case onCopied(Bool)
     }
     
     public init(text: Binding<String>, targetText: Binding<String>, isSourceTextEmpty: Bool = true, isStar: Binding<Bool>, onAction: @escaping (TextEditorToolsView.ActionType) -> Void) {
@@ -89,6 +90,8 @@ public struct TextEditorToolsView: View {
                     if !targetText.isEmpty {
                         PasteboardManager.shared.copy(targetText)
                         isCopied = true
+                        // 已复制提示回调
+                        onAction(.onCopied(true))
                         // 3秒后将 isCopy 设为 false
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             isCopied = false
@@ -98,9 +101,13 @@ public struct TextEditorToolsView: View {
                         debugPrint("复制的译文不能为空")
                     }
                 }, label: {
-                    Image(systemName: "heart.text.clipboard")
-                        .symbolRenderingMode(isCopied ? .multicolor : .monochrome)
+                    Image(systemName: "doc.on.doc")
+                        .foregroundColor(isCopied ? .gray : .primary)
+                    
+//                    Image(systemName: "heart.text.clipboard")
+//                        .symbolRenderingMode(isCopied ? .multicolor : .monochrome)
                 })
+                .disabled(isCopied)
                 
                 Button {
                     withAnimation(.easeInOut(duration: 0.1)) {
@@ -112,6 +119,7 @@ public struct TextEditorToolsView: View {
 //                        Image(systemName: isStar ? "star.fill" : "star")
 //                            .symbolRenderingMode(isStar ? .multicolor : .monochrome)
                         Image(systemName: "star")
+                            .foregroundColor(.primary)
                             .symbolRenderingMode(isStar ? .multicolor : .monochrome)
                     }
                 }
