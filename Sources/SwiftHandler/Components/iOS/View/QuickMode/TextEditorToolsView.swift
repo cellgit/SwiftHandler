@@ -22,6 +22,8 @@ public struct TextEditorToolsView: View {
     
     @State var isCopied: Bool = false
     
+    @State var isCopyDisabled: Bool = false
+    
     var onAction: (TextEditorToolsView.ActionType) -> Void
     
     public enum ActionType {
@@ -87,6 +89,7 @@ public struct TextEditorToolsView: View {
             
             if !isSourceTextEmpty {
                 Button(action: {
+                    isCopyDisabled = true
                     if !targetText.isEmpty {
                         PasteboardManager.shared.copy(targetText)
                         isCopied = true
@@ -101,6 +104,11 @@ public struct TextEditorToolsView: View {
                         onAction(.onCopied(false))
                         debugPrint("复制的译文不能为空")
                     }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        isCopyDisabled = false
+                    }
+                    
                 }, label: {
                     Image(systemName: "doc.on.doc")
                         .foregroundColor(isCopied ? .gray : .primary)
