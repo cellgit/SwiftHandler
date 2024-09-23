@@ -93,7 +93,7 @@ public struct TextEditorToolsView: View {
                         // 已复制提示回调
                         onAction(.onCopied(true))
                         // 3秒后将 isCopy 设为 false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             isCopied = false
                         }
                     }
