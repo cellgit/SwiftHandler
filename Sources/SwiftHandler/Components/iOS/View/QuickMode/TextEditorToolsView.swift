@@ -98,6 +98,7 @@ public struct TextEditorToolsView: View {
                         }
                     }
                     else {
+                        onAction(.onCopied(false))
                         debugPrint("复制的译文不能为空")
                     }
                 }, label: {
