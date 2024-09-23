@@ -116,7 +116,7 @@ public struct TextEditorToolsView: View {
 //                    Image(systemName: "heart.text.clipboard")
 //                        .symbolRenderingMode(isCopied ? .multicolor : .monochrome)
                 })
-                .disabled(isCopied)
+                .disabled(isCopyDisabled)
                 
                 Button {
                     withAnimation(.easeInOut(duration: 0.1)) {
