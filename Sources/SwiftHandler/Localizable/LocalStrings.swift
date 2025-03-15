@@ -45,6 +45,7 @@ public enum LocalStrings: String {
     case detail
     case edit_history
     case edit
+    case download_language
 
     /// 本地化显示的text
     public var text: String {

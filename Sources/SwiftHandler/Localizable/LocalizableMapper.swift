@@ -33,6 +33,9 @@ public struct LocalizableMapper {
     public let document_translation = NSLocalizedString("document_translation", bundle: .module, comment: "文件翻译-内容")
     public let screenshoot_translation = NSLocalizedString("screenshoot_translation", bundle: .module, comment: "截屏翻译-内容")
     public let screenshoot_translation_action = NSLocalizedString("screenshoot_translation_action", bundle: .module, comment: "截屏翻译事件-内容")
+    public let download_language = NSLocalizedString("download_language", bundle: .module, comment: "下载语言-内容")
+    
+    
     
 
 }
